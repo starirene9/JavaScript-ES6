@@ -21,3 +21,15 @@ while (k <= n) {
 }
 
 alert(resultMark);
+
+//=====위의 것이랑 똑같이 돌아감 
+
+var resultMark = '';
+for(k = 1;k <= n;k++){
+    if (k % 2 === 1) { // 홀수라면
+        resultMark += '+';
+    } else { // 짝수라면
+        resultMark += '-';
+    }
+}
+alert(resultMark);

@@ -19,3 +19,9 @@ while(n <= y) { //여기를 바꾸면 됨
     n++;
 }
 console.log(`${x} ~ ${y}까지의 누적합: ${total}`);
+
+
+var total = 0;
+for(var n = x;n <= y;n++){
+    total += n;
+}
