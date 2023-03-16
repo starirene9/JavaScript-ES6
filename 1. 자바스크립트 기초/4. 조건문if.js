@@ -14,16 +14,17 @@ Math.floor(Math.random()*100)+1 // Math.floor : 소숫점을 바닥에 버린다
 0 + 1 <= ~ <100 +1 (1부터 100까지의 랜덤 정수를 만들어냄~!)
 
 공식 :x 이상 y 이하의 정수 난수
-                            y이하 난수정수  x이상
+                            y미만          x이상
 Math.floor(Math.random() * (y - x +1 )) + x
 //  랜덤 슬라이드 및 사진 바뀔때 난수 공식 사용해야함. 
 
 //117 - 147 랜덤 숫자 구하기 
-Math.floor(Math.random(31)*)+117
+Math.floor(Math.random*(31))+117
 
 
 var age = +prompt('당신의 나이는?');
-// prompt 문자는 모든 데이터를 string 으로 받기에.. 숫자로 변환할때는 +를 붙여주면 된다. 
+// prompt 문자는 모든 데이터를 string 으로 받기에.. 
+// 숫자로 변환할때는 +를 붙여주면 된다. 
 //입력하고 확인을 누르면 입력값을 리턴해 줄 수 있다.
 alert(`내 나이: ${ age + 1}살`);
 

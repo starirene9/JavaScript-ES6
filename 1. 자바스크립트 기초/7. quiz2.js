@@ -2,12 +2,12 @@
 var n = +prompt('양의 정수를 입력');
 
 // 2. 입력된 숫자만큼 + - 를 반복 출력해야함
-var k = 1;
+var k = 1; // begin
 
 var resultMark = '';
 // 2-1. 입력된 숫자만큼 반복해야함
 
-while (k <= n) {
+while (k <= n) { //end
     
     // 2-2. 홀수번째 반복에는 +가 붙어야하고
     //      짝수번째 반복에는 -가 붙어야함
@@ -17,18 +17,17 @@ while (k <= n) {
     } else { // 짝수라면
         resultMark += '-';
     }
-    k++;
+    k++; //증감식
 }
-
 alert(resultMark);
 
-//=====위의 것이랑 똑같이 돌아감 
+//=====while for 문으로 변경 
 
 var resultMark = '';
-for(k = 1;k <= n;k++){
-    if (k % 2 === 1) { // 홀수라면
+for(var k = 1; k <= n; k++){
+    if (k % 2 === 1) { 
         resultMark += '+';
-    } else { // 짝수라면
+    } else { 
         resultMark += '-';
     }
 }

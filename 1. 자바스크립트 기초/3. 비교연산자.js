@@ -13,7 +13,7 @@ console.log(0 === '');
 console.log('0' === 0);
 console.log(false === 'false');
 console.log(false === '0');
-// 다 false 떠야하는데 두개까지를 안그래...그냥 두개짜리 쓰지 말고 세 개짜리 써라 === 
+// 다 false 떠야하는데 두개까지를 안그래...세 개짜리 써라 === 
 
 // 문자 대소비교
 console.log('========================');
