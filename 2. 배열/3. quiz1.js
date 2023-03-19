@@ -10,31 +10,47 @@
    입력했던 숫자배열과 숫자의 총합(배열 요소의 합)을 계산하여 출력하세요.
 */
 
-//숫자를 저장할 배열 : while 내부에 있으면 자꾸 빈 데이터로 돌아감 
-var numbers = []; 
+// var inputs = [];
+// var total = 0;
+// while (true) {
+//     var input = prompt(`숫자를 입력해주세요\n중단하시길 원하면 \'그만'\ 이라고 입력하세요.`);
 
-while (true) {
+//     if(input === '그만') {
+//         break;
+//     }
 
-    //일단 숫자도 문자열로 입력 받음 
-    var inputData = prompt(`숫자를 입력하세요.\n그만두려면 \'그만\'이라고 입력하세요!`); // 특수문자 표기 
+//     inputs.push(input);
+//     total += +input;
 
-    if (inputData === '그만') break;
+// } alert(`입력하신 숫자 : [${inputs}]\n숫자의 총합:${total}`)
 
-    //배열에 데이터 저장 : '그만'은 numbers에 넣으며 안되므로 break 밑에 있어야함 
-    numbers.push(+inputData); 
-    //push는 array만 사용 가능. 뒤에다가 하나씩 입력 
-    //inputData 검사 시 String문자 이므로 앞에 + 넣어서 숫자로 형변환 하여 저장 
 
-}
-// console.log(inputData);
-// alert(numbers);
 
-//총합 구하기 
+// //숫자를 저장할 배열 : while 내부에 있으면 자꾸 빈 데이터로 돌아감 
+// var s = [];
 
-var total = 0; //총합을 저장할 변수 
-    //담을 변수 of 배열               
-for (var n of numbers) {
-    total += n;
-}
-// console.log(numbers);
-alert(`입력한 숫자 목록[${numbers}]\n 입력한 숫자 총합 : ${total}`);
+// while (true) {
+
+//     //일단 숫자도 문자열로 입력 받음 
+//     var inputData = prompt(`숫자를 입력하세요.\n그만두려면 \'그만\'이라고 입력하세요!`); // 특수문자 표기 
+
+//     if (inputData === '그만') break;
+
+//     //배열에 데이터 저장 : '그만'은 s에 넣으며 안되므로 break 밑에 있어야함 
+//     s.push(+inputData);
+//     //push는 array만 사용 가능. 뒤에다가 하나씩 입력 
+//     //inputData 검사 시 String문자 이므로 앞에 + 넣어서 숫자로 형변환 하여 저장 
+
+// }
+// // console.log(inputData);
+// // alert(s);
+
+// //총합 구하기 
+
+// var total = 0; //총합을 저장할 변수 
+// //담을 변수 of 배열               
+// for (var n of s) {
+//     total += n;
+// }
+// // console.log(s);
+// alert(`입력한 숫자 목록[${s}]\n 입력한 숫자 총합 : ${total}`);

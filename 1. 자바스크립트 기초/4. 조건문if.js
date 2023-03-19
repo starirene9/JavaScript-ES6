@@ -19,8 +19,7 @@ Math.floor(Math.random() * (y - x +1 )) + x
 //  랜덤 슬라이드 및 사진 바뀔때 난수 공식 사용해야함. 
 
 //117 - 147 랜덤 숫자 구하기 
-Math.floor(Math.random*(31))+117
-
+Math.floor(Math.random()*31)+117;
 
 var age = +prompt('당신의 나이는?');
 // prompt 문자는 모든 데이터를 string 으로 받기에.. 

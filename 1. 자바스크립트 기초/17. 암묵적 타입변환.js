@@ -5,7 +5,7 @@ var n2 = '20';
 
 console.log(n1 + n2); //1020
 
-var n3 = n1 + ''; //빈 문자열 -> 문자로 변환됨 
+var n3 = n1 + ''; //빈 문자열 -> 문자로 변환됨 !!!!!!!
 console.log(typeof n3); //string : 숫자 + 문자 => 문자로 바뀜 
 
 var n4 = '100' - 55; //뺄셈에서 문자를 암묵적으로 숫자로 바꿈 
@@ -32,7 +32,7 @@ if ([]) console.log('ok10');
 for (var n = 1; n <= 10; n++) {
     if (n % 2) { // 나머지 1이니까 홀수, 나머지 0이니까 false 으로 판단되서 짝수
         console.log(n + ':홀수입니다.');
-    } else { /
+    } else { 
         console.log(n + ':짝수입니다.');
     }
 }
