@@ -26,7 +26,7 @@ function outer(m) {
 
     // 헬퍼 함수 : 호출이 함수 내부로 제한됨 : 바깥에서 호출 불가 
     function inner() {
-        console.log(n); // 가능 
+        console.log(n); // 가능 //outer local n
         var m = 'inner local m';
         var v = 'inner local v';
         console.log(m); // inner local m
