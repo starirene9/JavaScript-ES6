@@ -24,18 +24,11 @@ while (true) {
     }
 
     if(tvxq.length === 0) {
-        
         break;
     }
  
 }
 alert(`모든 멤버가 삭제되었습니다.`);
-
-
-
-
-
-
 
 
 
@@ -67,24 +60,25 @@ alert(`모든 멤버가 삭제되었습니다.`);
 // // ** 바깥에 띄우면 됨 : alert(`모든 멤버가 삭제되었습니다.`);
 
 
-// var tvxq = ['유노윤호', '최강창민', '영웅재중', '믹키유천', '시아준수'];
+var tvxq = ['유노윤호', '최강창민', '영웅재중', '믹키유천', '시아준수'];
 
-// while (true) {
-//     var modTarget = prompt(`현재 멤버 : [${tvxq}]\n수정할 이름을 입력하세요.`);
-//     //존재 여부 확인먼저 
-//     if (tvxq.includes(modTarget)) {
-//         //새롭게 수정할 이름 받기 
-//         var newMemberName = prompt(`새로운 멤버 이름을 입력하세요.`);
+while (true) {
+    var modTarget = prompt(`현재 멤버 : [${tvxq}]\n수정할 이름을 입력하세요.`);
+    
+    if (tvxq.includes(modTarget)) { //있으면
+        
+        var newMemberName = prompt(`새로운 멤버 이름을 입력하세요.`);
+        //오른쪽 새로운 값을 왼쪽에 대입
+        //tvxq[1](최강창민이 타겟이였으면/즉 인덱스로 찾아냄) = newMemberName; 
+        tvxq[tvxq.indexOf(modTarget)] = newMemberName;
+        alert(`수정 완료! \n 현재 멤버 : [${tvxq}]`)
 
-//         tvxq[tvxq.indexOf(modTarget)] = newMemberName;
-//         alert(`수정 완료! \n 현재 멤버 : [${tvxq}]`)
+        break; //끝내주고
 
-//         break; //끝내주고
-
-//     } else {
-//         alert(`${modTarget}은 잘못된 이름입니다.\n다시 입력하세요.`)
-//     }
-// }
+    } else {
+        alert(`${modTarget}은 잘못된 이름입니다.\n다시 입력하세요.`)
+    }
+}
 
 
 

@@ -21,7 +21,6 @@ function calcDivisor(n) { //20
     return divCount;
 }
 
-
 // 호출부 : 실행했을때 
 var divCount = calcDivisor(20);
 console.log(`약수의 개수: ${divCount}개`);

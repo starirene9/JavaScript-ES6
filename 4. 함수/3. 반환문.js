@@ -21,8 +21,8 @@ function multi(n1, n2) {
     //화면에 찍고 들고오지 마~ : 소비함수
 }
 
-// 리턴이 없는 함수는 변수에 담지 말고, 다른함수에 인수로 전달 x
-var r3 = multi(10, 3);
+// 리턴이 없는 함수는 변수에 담지 말고, 다른 함수에 인수로 전달 x
+var r3 = multi(10, 3); //30인데 ...
 add(r3, 10); // r3 리턴값이 없어서 undefined 뜸 
 multi(add(4, 3), add(5, 5));
 
@@ -35,18 +35,19 @@ function callName(nickName) {
         console.log('잘못된 닉네임은 인사를 못해줍니다.');
         return; // 코드를 끊어줌 
     }
-    console.log(`${nickName}님 안녕하세요!`);
+    console.log(`${nickName}님 안녕하세요!`); 
+
 }
 
 callName('바둑이');
-callName('돌아이'); // return으로 끊어주면 반복문안에서 쓰는 break 와 똑같은 효과 
+callName('돌아이'); // return으로 끊어주면 반복문안에서 쓰는 break 와 똑같은 하지만 더 강력한 효과 
 
 function stopLoop() {
 
     while (true) {
         var flag = prompt(`명령어를 입력하세요!`);
         if (flag === '멈춰') {
-            break; // break는 단순히 반복문인 while을 끊고 수고용~ 읽고 나옴.
+            break; // break는 단순히 반복문인 while을 끊고 수고용~ 읽고 나옴. (반복문에서 사용)
             //return은 break 보다 강력해서 수고용 없이 함수 자체를 끝낸다. 
         } 
         alert(flag);

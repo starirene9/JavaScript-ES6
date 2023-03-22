@@ -1,4 +1,4 @@
-// 매개변수, 인자, 매개변수가 없는 함수 
+// 매개변수, 인수, slice 구현, 매개변수가 없는 함수 
 
 /*
     description : x - y 까지의 총합을 구하는 함수 
@@ -46,6 +46,7 @@ function sayHello(language = '한국어') { // 기본값 아무것도 안 적어
 
 sayHello();
 
+
 //slice 구현하기 
 
 function mySlice(arr, start, end) {
@@ -57,14 +58,15 @@ function mySlice(arr, start, end) {
     return copyArr;
 }
 
-var newArr = mySlice([10, 20, 30, 40, 50], 1, 3); // index 1 이상 3 미만 
-console.log(newArr);
+var newArr = mySlice([10, 20, 30, 40, 50], 0, 3); // index 1 이상 3 미만 
+console.log(newArr); //20,30
 
 //매개 변수(parameter)가 없는 함수 
 function selectRandomPet() {
     var pets = ['멍멍이', '짹쨱이', '꽥꽥이', '어흥이'];
 
-    return pets[Math.floor(Math.random() * pets.length)];  // 0 ~ 4까지 -> 배열의 길이값 
+    return pets[Math.floor(Math.random() * pets.length)];  
+    // 0 ~ 배열의 길이값(length:4) 미만 까지의 숫자를 : pets[0/1/2/3]안에 랜덤으로 넣는다고 보면됨 
 }
 
 var randomPet = selectRandomPet();

@@ -1,6 +1,8 @@
+// 함수 정의, 함수 호출, 리턴값이 없는 함수
 /*
-function 기똥찬이름(바뀌는 부분) {
+function 기똥찬이름 (바뀌는 부분) {
     재활용하고 싶은 코드 
+    return : 내보낼게 있으면 
 } */
 
 //함수 정의 - 만든다
@@ -9,7 +11,6 @@ function happyGreeting(yourName) { //바뀌는 부분을 소괄호 안에 넣기
     console.log(`오늘도 즐거운 하루 되세요~!루삥뽕`);
     //재활용하고 싶은 코드 넣기 
 }
-
 //함수 호출 - 사용한다
 happyGreeting('다나카'); //바꾸고 값만 바꿔주면 됨 
 happyGreeting('오뚜기');

@@ -20,7 +20,7 @@ function add(n1, n2) {
 
 
 //스프레드 (ES6)
-function addAll(...numbers) { // ...붙여주면 대괄호 생략 가능 
+function addAll(...numbers) { // parameter에 ...붙여주면 배열의 뜻 : 인수에 [] 생략 가능 
     var total = 0;
     for (var n of numbers) { // 배열을 선형나열로 돌려서 더함 
         total += n;
@@ -51,7 +51,6 @@ function operateAll(n1, n2) {
     // 순서가 중요하면 배열 순서 바껴도 괜찮은거면 객체 사용 
 }
 
-// result는 배열임 : 타입이 매우 중요!
 var result = operateAll(10, 5); // 한번의 호출로 여러개를 리턴받은 효과가 남 
 console.log(`덧셈 결과 : ${result.plus}`);
 console.log(`뺄셈 결과 : ${result.minus}`);

@@ -26,11 +26,11 @@ var slicedFoods = foodlist.slice(1,4); //1이상 4미만 : 서양식 마인드! 
 console.log(slicedFoods); //[ '볶음밥', '짜장면', '족발' ]
 console.log(foodlist); //원본에는 변화가 없다 [ '닭꼬치', '볶음밥', '짜장면', '족발', '오뎅', '순대국밥' ]
 
-//2번부터(포함) 끝까지 추출 
+//2번이상(포함) 끝까지 추출 
 var slicedFoods2 = foodlist.slice(2);
 console.log(slicedFoods2);
 
-//아무것도 안쓰면 ? 원본 배열을 그대로 복사
+//아무것도 안쓰면 ? 원본 배열을 그대로 복사!!!!
 var slicedFoods3 = foodlist.slice();
 console.log(slicedFoods3);
 

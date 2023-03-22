@@ -4,42 +4,41 @@
 function add(n1, n2) {
     return n1 + n2;
 }
-// const plus = add(5,9);
+// const plus = add(5,9); //기존의 호출 
 // console.log(plus); //14
 
 // 1. 함수자체를 통째로 들어서 plus에 넣어버림 
-const plus = add; // 함수자체를 통째로 들어서 plus에 넣어버림 
+const plus = add; // (소괄호 없이!) add라는 함수 자체를 통째로 plus에 넣어버림 
 console.log(plus); // [Function: add]
 
-const r1 = plus(10, 20);
+const r1 = plus(10, 20); //add라고 안하고 plus 호출 가능 
 console.log(`r1 : ${r1}`); //30
 
-// 2. 무명함수 생성 : 함수 리터럴 => 이름 없는 함수는 값이다. 
-const sub = function (n1, n2) {
+// 2. 무명 함수 생성 : 함수 리터럴(값) => 값; 세미콜론 붙이기!
+const sub = function (n1, n2) { // 이름이 없는 함수를 변수에 넣기 쌉가능 
     return n1 - n2;
 }; // 값이니까 뒤에 ; 붙여줘야함 
 
 sub(20, 10);
 
 
-
-const fArr = [10, 'hellow', true, {}, [], add
+const fArr = [10, 'hellow', true, {}, [], add //함수
 , function() {console.log('메롱')}]; // add라는 함수 넣을 수 있음 
 
-fArr[6](); // 배열 6번째 인덱스 호출함 => 메롱 나옴 
+fArr[6](); // 배열 6번째 함수 호출함 => 메롱 나옴 
 
 
 const dog = {
     name : '초코',
     kind : '푸들',
 
-    // 함수라고 부르지 않고 메서드:객체의 기능 라고 부른다. 
-    bark : function() {
+    // 함수라고 부르지 않고 메서드라고 부름 (단독 호출 불가)
+    bark : function() { // 기능을 함수로 만들어서 객체의 프로퍼티 값으로 바로 넣을 수 있음 
         console.log('왈왈월월!');
     }
 }
-
-dog.bark(); // . 이 붙으면 매서드 안붙으면 함수 
+bark(); //이거 안됨
+dog.bark(); // . 이 붙으면 매서드 안 붙으면 함수 
 
 const cat = {
     name : '냥냥이',

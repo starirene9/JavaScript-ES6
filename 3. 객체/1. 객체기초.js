@@ -33,12 +33,11 @@ console.log(dog.favorite[0]);
 dog.favorite.push('꼬리 흔들기'); // 타입이 중요~! 배열의 끝에 추가 됨 
 console.log(dog);
 console.log('===================');
-dog.favorite.slice(1).splice(1,1); //배열이라서 가능
+dog.favorite.slice(1); //배열이라서 가능
 console.log(dog.favorite);
 
 //프로퍼티 참조 2
 console.log(dog.injection);
-console.log(dog['injection']);
 console.log(dog['injection']);
 //둘다 결과는 똑같으나 42번라인 처럼 써야할 때가 있다. 
 
@@ -64,11 +63,11 @@ console.log(cat);
 console.log('=========================');
 
 //프로퍼티 존재 유무 확인 : 수정할때 
-//키를 반드시 문자열로 표기해야함 
+//키를 반드시 문자열로 표기해야함 !
 var ageFlag = 'age' in cat; 
 console.log(ageFlag);//있으면 true 없으면 false
 
-//master라는 프로퍼티가 없으면 추가해라
+//master라는 프로퍼티가 없으면 추가해라 : 키값은 문자열 표시
 if(!('master' in cat)) {
     cat['master'] = '구빛나';
 }
@@ -81,10 +80,11 @@ if(!('master' in cat)) {
 console.log('========================');
 //객체를 순회하는 반복문
 
-//of 는 배열 in 은 객체 
+// for of 는 배열 for in 은 객체 
 for(var k in dog ) {
     console.log(k); //key를 반복해서 추출해줌 
-    console.log(dog[k]); // value를 추출하는데, ''이 들어가면 안되서 무조건 얘는 dog[k]식으로 써줘야함 
-//dog[k]는 dog.key값이라서 value를 추출한다고 보면 됨 
+    console.log(dog[k]); //value 추출하는 법~!
+// value를 추출하는데, ''이 들어가면 안되서 무조건 얘는 .말고 dog[k]식으로 써줘야함 
+//dog[k]는 dog의 key값이라서 value를 추출한다고 보면 됨 
 }
 

@@ -1,5 +1,6 @@
-// 콜백 : 함수를 통쨰로 넘기는 방식 : 나머지는 다 써놨으니까 
-// 너가 추가하고 싶은 부분만 콜백으로 써서 보내~!
+// 콜백 : 원하는 시점에 함수를 통째로 넘기는 방식 
+// 나머지는 다 써놨으니까 너가 추가하고 싶은 부분만 콜백으로 써서 보내~!
+// 함수가 매개변수로 들어감
 
 // 정수 n을 전달하면 1부터 n까지의 모든 짝수를 출력하는 함수 
 function showEvenNumber(n) {
@@ -54,15 +55,15 @@ function showMessage(message, howTo) {
     document.body.style.background = 'gray';
 
     setTimeout(() => {
-        //개별기능
+        //개별기능 : alert, prompt, confirm 등 각자 요구 사항이 다르니까 저거 사용자가 원하는대로 설정해~
         howTo(message);
 
         //공통기능
         alert('하하호호!');
-    }, 500);
-    // 가운데만 내가 수정하는 것임 alert, confirm prompt로 스스로 알아서 
+    }, 500); // 화면 뜨는것에 대한 설정 0.5쪽 늦춘거임 
+
 }
 
 showMessage('메롱메롱', function (m) {
-    alert(m); //본인이 하고 싶은거 넣어 주면 됨 
+    confirm(m); // 혹은 prompt(m) 등 본인이 원하는거 쓰면 됨 
 });

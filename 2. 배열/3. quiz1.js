@@ -10,19 +10,20 @@
    입력했던 숫자배열과 숫자의 총합(배열 요소의 합)을 계산하여 출력하세요.
 */
 
-// var inputs = [];
-// var total = 0;
-// while (true) {
-//     var input = prompt(`숫자를 입력해주세요\n중단하시길 원하면 \'그만'\ 이라고 입력하세요.`);
+var inputs = [];
+var total = 0;
+while (true) {
+   var input = prompt(`숫자를 입력해주세요\n중단하시길 원하면 \'그만'\ 이라고 입력하세요.`);
 
-//     if(input === '그만') {
-//         break;
-//     }
+   if (input === '그만') {
+      break;
+   }
 
-//     inputs.push(input);
-//     total += +input;
+   inputs.push(input);
+   total += +input;
 
-// } alert(`입력하신 숫자 : [${inputs}]\n숫자의 총합:${total}`)
+}
+alert(`입력하신 숫자 : [${inputs}]\n숫자의 총합:${total}`)
 
 
 

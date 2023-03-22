@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li id="apple">사과</li>
+        <li id="banana" style="background: greenyellow;">바나나</li>
+        <li id="grape">포도</li>
+        <li id="orange">복숭아</li>
+    </ul>
+
+    <script>
+        //$넣으면 태그라고 여기는 관례가 있음 
+        const $banana = document.getElementById('banana'); // 바나나의 타입은 객체
+        //get가져와 element:태그 id를 통해서 가지고 와라
+        console.log($banana.attributes.id.value);
+        //요소 열고 우측 속성 열어서 객체를 깊이 파서 불러오면 됨 
+
+        $banana.attributes.id.value = '바나나는 하얗다';
+        $banana.style.background = 'pink';
+        //이렇게 조작도 가능..!
+        
+    </script>
+</body>
+</html>
