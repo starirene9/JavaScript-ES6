@@ -22,9 +22,14 @@
         //요소 열고 우측 속성 열어서 객체를 깊이 파서 불러오면 됨 
 
         $banana.attributes.id.value = '바나나는 하얗다';
-        $banana.style.background = 'pink';
+        $banana.style.background = 'yellow';
         //이렇게 조작도 가능..!
         
+        const $grape = document.getElementById('grape');
+        $grape.style.backgroundColor = 'violet';
+        $grape.style.width = 'fit-content';
+        //이런거는 css로 하고 중간에 변화를 주고싶을때 코드로 조작한다.
+
     </script>
 </body>
 </html>
