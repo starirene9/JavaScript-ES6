@@ -28,18 +28,19 @@ const userList = [{
     },
 ];
 
-// 회원목록에서 회원정보를 출력하는 함수 
-function alertUserInfo(wannaSay) { // 2. 대신 wannaSay가 뭔지 알려줘 
-    for (const user of userList) { //배열에서 user객체 하나씩 꺼내기 
+// 회원목록에서 회원정보를 출력하는 함수 : 여기에서는 배열을 돌려주기만 함 
+function alertUserInfo(wannaSay) { // 2. 대신 wannaSay 함수가 뭔지 알려줘 
+    for (const user of userList) { 
         wannaSay(user); // 1. user를 줄테니까 니가 하고 싶은 말 써라 
     }
 }
+alertUserInfo(user => console.log(`나는 ${user.userName}님이시다. 우하하하`));
+//alertUserInfo(function(user){}); // 여기 안에 function만 정해서 보내주기
 
-alertUserInfo(u => console.log(`나는 ${u.userName}님이시다. 우하하하`));
-
-//배열 고차 함수 : 함수형 프로그래밍의 꽃 for, if 안써도 됨
 console.log('=======================1.forEach()');
+//배열 고차 함수 : 함수형 프로그래밍의 꽃 for, if, for of 안써도 됨
 //forEach() : 배열의 요소를 반복하면서 하나씩 꺼내줌 => 구체적으로 뭐할지는 내가 쓰는 것 
+// .forEach(() => {}); 이렇게 생긴 구조 
 userList.forEach(user => {
     console.log(user.address);
 });
@@ -57,6 +58,7 @@ let total = 0;
 numbers.forEach((n) => {
     total += n;
 });
+//numbers.forEach(n => total +=n);
 console.log(`총합: ${total}`);
 
 
@@ -97,7 +99,7 @@ console.log(new3Array);
 console.log('===================4.특정 필터조건에 의해 필터링하는 함수 ');
 // 계속 바꿀순 없으니 특정 필터조건에 의해 필터링하는 함수 
 
-function filter(condition) { // 2. 나한테 codition parameter 함수가 뭔지 알려줘
+function filter(condition) { // 2. 나한테 codition 함수가 뭔지 알려줘
     // 새로운 배열 생성
     const filteredArray = [];
 
@@ -157,7 +159,7 @@ function myMap(callback) { // 2. callback이 뭔지 알려줘
 const userNames2 = myMap(user => ({
     userName: user.userName,
     address: user.address
-}));
+})); //객체 괄호 묶어줘야함 
 
 console.log(userNames2); // 이름과 주소가 출력 
 

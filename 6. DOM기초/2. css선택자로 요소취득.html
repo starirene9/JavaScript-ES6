@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- ul#fruits>li.fr*4-->
+    <ul id="fruits">
+        <li class="fr">사과</li>
+        <li class="fr banana">바나나</li>
+        <li class="fr grape">포도</li>
+        <li class="fr">복숭아</li>
+    </ul>
+
+    <script>
+        //query : 질문 selector : 선택자
+        // document.querySelector('.fr');인 경우 첫 번째 노드만 가지고 옴 => 사과  
+        const $grape = document.querySelector('.grape'); // .grape : class . 빼면 안됨
+        // const $grape = document.querySelector('#fruits li:nth-child(3)');
+        // const $grape = document.querySelector('.banana + li'); //리스트 중 위에 바나나가 형인 애
+        // const $grape = document.querySelector('#fruits > li');  // 사과 : 첫번 노드 반환 
+
+        $grape.textContent = '맛있는 포도'; //꺽쇄 사이에 있는 글 
+
+        //선택자에 해당하는 모든 요소를 취득 : querySelectorAll 로 잡아오면 유사배열을 배열로 바꿀것 [... ] 
+        const elements = [...document.querySelectorAll('.fr')]; // 유사 배열을 배열로 만들어 줌 
+        console.log(elements);
+
+        elements.push($grape);
+        console.log(elements);
+
+        elements[2].style.background = 'purple';
+
+        for (const $li of elements) {
+            $li.style.border = '3px dashed skyblue';
+
+        }
+        // 유사배열은 객체이자 배열처럼 쓸 수 있는 여지를 남겨줌 
+        elements.age = 10;
+        console.log(elements);
+
+        const [a, b, c, d] = [...document.querySelectorAll('li')];
+        //a에 사과 b 바나나 순서대로 들어감 
+
+        d.textContent = '어피치';
+
+        elements.forEach($li => {
+            $li.style.color = 'orange';
+        });
+    </script>
+</body>
+
+</html>
