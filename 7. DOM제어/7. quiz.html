@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1 class="theTitle">html 조작</h1>
+    <ul id="list">
+        <li class="obj1">list_2</li>
+        <li>list_3</li>
+        <li>list_4</li>
+        <li>list_5</li>
+    </ul>
+
+    <script>
+        //1. class="theTitle"인 요소의 자식요소를 innerHTML을 사용하여
+        //   <a href="#">요소 객체 조작</a>로 교체하세요.
+        document.querySelector('.theTitle').innerHTML = '<a href="#">요소 객체 조작</a>';
+        
+        //2. class="obj1"인 요소의 텍스트를 "리스트_2"로 변경하세요.
+        document.querySelector('.obj1').textContent = '리스트_2';
+        
+        //### 여기부터는 innerHTML 사용 금지.
+        //3. id="list"인 요소의 마지막 위치에 새요소 "<li>list_6</li>"를 추가하세요.
+        //li태그 생성 
+        const $list = document.getElementById('list'); //부모요소로부터 요청 
+        const $newLi =  document.createElement('li');
+        $newLi.textContent = 'list_6';//text추가 
+        $newLi.setAttribute('id','banana'); //속성을 붙여서 넣을때 이렇게 하면 됨 
+        $list.appendChild($newLi);//새로운 노드 자식으로 추가 
+
+        //4. id="list"인 요소의 첫 위치에 새요소 "<li>list_1</li>"를 추가하세요.
+        const $newLi2 = document.createElement('li');
+        $newLi2.textContent = 'list_1';
+        $list.insertBefore($newLi2, $list.firstElementChild);
+
+        //5. id="list"인 요소의 하위 <li>요소중 첫번째 요소 삭제
+        $list.removeChild($list.firstElementChild);
+
+        //6. ul의 자식 노드를 전부 삭제하세요.
+        // $list.innerHTML='';
+            [...$list.children].forEach(($li)=>{$list.removeChild($li)});
+            //forEach 리뷰 필요~!
+    </script>
+
+</body>
+
+</html>

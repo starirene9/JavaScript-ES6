@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="fruits">
+        <li>사과</li>
+    </ul>
+
+    <script>
+        const $fruits = document.getElementById('fruits'); // queryselector사용시 #fruits
+        //항상 요청은 부모한테 요청해야한다.
+        
+        // li태그 생성 : element (태그) <li></li>//비어있는 li생성 완료
+        const $newLi = document.createElement('li');
+        // text 추가 : textContent  <li>바나나</li>
+        $newLi.textContent = '딸기';
+        //새로운 노드를 자식으로 추가하는 명령 <ul 아래로 들어가게 됨>
+        $fruits.appendChild($newLi);
+
+        //============아래는 상위레벨
+
+        // 태그이름과 텍스트를 전달 받으면 태그를 생성하는 함수 
+        function makeTag(tagName, text = '') { //tagName과 text를 줘 
+            const $newTag = document.createElement(tagName);
+            if (text) $newTag.textContent = text; //text가 있다면 넣어라 
+            return $newTag;
+        }
+
+        //부모태그를 알려주면 자식을 추가해주는 함수
+        function appendNewTag($parent, $target) {
+            $parent.appendChild($target);
+        }
+
+        //만들면서 추가하는 함수 
+        function append({$parent,tagName,text}) { // .없애기 위한 객체분해 
+            appendNewTag($parent, makeTag(tagName,text));
+        }
+
+        const fruitNames = ['바나나', '딸기', '포도', '자몽', '레몬'];
+
+        fruitNames.forEach(fn => {
+            append({
+                $parent: $fruits,
+                tagName: 'li',
+                text: fn
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>

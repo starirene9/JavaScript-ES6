@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">클릭하세요!</button>
+    <script>
+        function hello () {
+            alert('안녕');
+        }
+
+        const $btn = document.getElementById('btn');
+
+        // $btn.onclick = hello;
+
+        // $btn.onclick = function (){
+        //     $btn.style.background = 'pink';
+        // }; // = 은 기존의 것 사라짐 : 즉 onclick시 하나밖에 못 붙임
+        
+        //$element.addEventListener(기능, 함수); 
+        $btn.addEventListener('click', hello);
+        $btn.addEventListener('click', () => {
+            $btn.style.background ='aqua';
+        }); //이렇게 하면 핸들러 2개 붙음 
+
+        // 핸들러 제거 : 단 이름없는 함수는 제거 불가 
+        $btn.removeEventListener('click', hello);
+
+    </script>
+</body>
+</html>

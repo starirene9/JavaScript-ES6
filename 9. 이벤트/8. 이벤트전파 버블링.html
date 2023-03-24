@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+        #fruits {
+            padding: 50px;
+            border: 2px solid red;
+        }
+
+        #fruits li {
+            background: yellow;
+            margin-bottom: 10px;
+        }
+        
+        #fruits li:first-child {
+            position: absolute;
+            bottom: 10%;
+            right: 5%;
+        }
+</style>
+<body>
+    <ul id="fruits">
+        <li class="apple">Apple</li>
+        <li class="banana">Banana</li>
+        <li class="grape">Grape</li>
+    </ul>
+
+    <script>
+        const $fruits = document.getElementById('fruits');
+        const $apple = $fruits.firstElementChild;
+
+        $fruits.addEventListener('click', e => {
+            // console.log('ul의 클릭이벤트 발생!');
+            console.log(e);
+            // 버블링은 target으로 ul과 li 구분 가능 
+            console.log(e.target.tagName, '-눌렀음!');
+        }); //li한테 안걸었는데 li클릭시 ul의 이벤트가 발생 : 버블링 
+
+        $apple.onclick = e => {
+            console.log('apple의 클릭이벤트 발생!');
+        }; //apple떨거 놨는데도 버블버블팝팝! 자기꺼와 부모꺼를 같이 터트림 
+    </script>
+</body>
+</html>

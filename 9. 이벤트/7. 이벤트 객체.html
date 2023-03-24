@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <p>아무곳이나 클릭하세요</p>
+    <em class="msg"></em>
+
+    <hr><hr><hr>
+
+    <input type="text" id="text">
+    <p class="show"></p>
+
+    <script>
+    //    $b2.onclick = function() {
+    //         $b2.style.width = '150px';
+    //     };
+        //클릭한 곳의 좌표는 브라우저가 안다. 
+        //e에다가 이벤트 정보를 브라우저가 쏴줌 
+        document.onclick = function(e) { // ({x, y}) <-여기서 destructuring해도 됨  
+            console.log(e);
+            const {x, y} = e; //.을 빼기 위한 객체 구조 분해 
+            // console.log(`x:${e.x}, y: ${e.y}`);
+            const $em = document.querySelector('.msg');
+            $em.textContent = `x:${e.x}, y: ${e.y}`;
+        };
+        
+
+        //============키보드 이벤트 확인 
+
+        const $textInput = document.querySelector('[type=text]');
+        // console.log($textInput); 꼭 확인해볼것 
+
+        $textInput.addEventListener('keyup', e => { 
+            // console.log(e);
+            const $show = document.querySelector('.show');
+            if (e.key === 'Enter') { //콘솔에 Enter 뜸 
+                $show.textContent = $textInput.value; 
+                // $textInput.value = '';
+            }
+        });
+
+
+    </script>
+</body>
+</html>

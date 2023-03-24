@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="wrap">
+        <ul id="fruits">
+            <li class="fr apple">사과</li>
+            <li class="fr banana">바나나</li>
+            <li class="fr grape">포도</li>
+        </ul>
+    </div>
+
+    <div class="box">
+        <!-- <p></p> -->
+    </div>
+
+    <script>
+        const $fruits = document.getElementById('fruits'); //부모
+
+        const $wrap = $fruits.parentElement; //div .wrap
+
+        const [$apple,$banana,$grape] = [...$wrap.firstElementChild.children];  // li들 
+
+        const sameFlag = $banana.nextElementSibling === $grape;
+        console.log(sameFlag); // 다음 형제 : nextElementSibling
+        const sameFlag1 = $banana.previousElementSibling === $apple;
+        console.log(sameFlag1); // 이전 형제 : previousElementSibling
+
+        $apple.parentElement.parentElement; // 이렇게 하지 말고
+        //closest('CSS선택자'); 가장 가까운 태그를 찾음
+        var foundElem = $apple.closest('.wrap');
+        console.log('찾은요소 : ', foundElem);
+    </script>
+</body>
+</body>
+
+</html>

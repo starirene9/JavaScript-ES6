@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="email" id="account" value="abc@gmail.com">
+
+    <script>
+
+        const $input = document.querySelector('input');
+
+        // console.log($input.attributes[0]);
+        // console.log($input.attributes.type);
+        // console.log($input.attributes.type.value); //email
+        $input.attributes.id.value = 'acc';
+        $input.attributes.value.value = 'zzz';
+        $input.attributes.type.value = 'checkbox';
+
+        
+        // 불편하니까 속성을 위한 함수를 만들어 놓았다 
+
+         /*
+        const typeAttr = {
+            name : 'type',
+            value : 'email'
+        };
+        const idAttr = {
+            name : 'id',
+            value : 'account'
+        };
+        const valueAttr = {
+            name : 'value',
+            value : 'abc@gmail.com'
+        };
+
+        //유사배열 : 객체나 배열 둘다 원하는 대로 쓸 수 있음 
+        const NamedNodeMap = {
+            0: typeAttr,
+            1: idAttr,
+            2: valueAttr,
+            length: 3,
+            trype : trypeAttr,
+            id : idAttr,
+            value: valueAttr
+        }
+
+        //속성노드들도 하나씩 만들어진다 
+        const $input = {
+            tagName: 'INPUT',
+            textContent: '',
+            attributes : NamedNodeMap
+        };
+        */
+    </script>
+</body>
+</html>

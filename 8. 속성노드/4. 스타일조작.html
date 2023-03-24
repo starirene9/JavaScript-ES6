@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background: orange;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            font-size: 20px;
+            color: red;
+        }
+
+        .green {
+            color: yellowgreen;
+            background: green;
+        }
+
+        .blue {
+            color: aqua;
+            background: blue;
+        }
+
+        .circle {
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+
+    // 인라인요소만 속성에서 확인할 수 있고 클래스로 준것은 속성에 적용되지 않음 
+    <div class="box green" style="font-weight: 700;">Hello</div>
+
+    <button id="add">클릭!</button>
+
+    <script>
+        const $box = document.querySelector('.box');
+        $box.style.fontStyle = 'italic';
+        // 인라인 스타일 조작이라서 무조건 됨 (점수 1000점)
+        // $box.style.display = 'none';
+
+        // 클래스 조작 // className쓰지 말것 
+        // $box.className = 'box blue';
+
+        // classList : add, remove, replace, contains, toggle 
+        $box.classList.add('circle');
+        $box.classList.add('aaa', 'bbb', 'ccc');
+
+        $box.classList.remove('green');
+        $box.classList.remove('aaa', 'ccc'); //동시에 지우기 가능 
+
+        $box.classList.add('green');
+        $box.classList.replace('green', 'blue');
+
+        console.log($box.classList.contains('box'));
+        console.log($box.classList.contains('apple'));
+
+        // //toggle : 현재 해당 클래스가 없으면 추가 있으면 지움 
+        $box.classList.toggle('circle');
+        $box.classList.toggle('circle');
+
+        const $btn = document.getElementById('add');
+
+        // 매 우 중 요 ~! 
+        $btn.onclick = e => {
+            $box.classList.toggle('circle');
+
+        //     const CLASSNAME = 'circle';
+
+        //     if ($box.classList.contains(CLASSNAME)){
+        //         $box.classList.remove(CLASSNAME);
+            // }else {$box.classList.add(CLASSNAME);}
+
+        };
+
+        // $btn.onclick = e => {
+        //     $box.classList.toggle('circle');
+        // };
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <ul id="fruits">
+        <li>사과</li>
+        <li>바나나</li>
+        <li>포도</li>
+    </ul>
+
+    <script>
+        const $fruits = document.getElementById('fruits');
+
+        //새로운 li생성
+        const $newLi = $fruits.firstElementChild.cloneNode(); //다음처럼 복사
+        $newLi.textContent = '복숭아';
+
+        console.log($newLi);
+
+        // //노드 교체 : replaceChildr : remove와 insert를 한방에 끝내는 replace
+        $fruits.replaceChild($newLi, $fruits.firstElementChild); //새롭게 추가되는애 앞에, 나가는 애를 뒤에 
+
+        // //자식 노드 삭제 
+        $fruits.removeChild($fruits.lastElementChild);
+        
+        // //자식 노드 전체 삭제 
+        // $fruits.innerHTML = '';
+
+        // const children = [...$fruits.children];
+        // for (const  $li of children) { //배열 반복문으로 꺼내기 
+        //     $fruits.removeChild($li); //반복할 행동 써놓기 
+        // }
+
+        // [...$fruits.children].forEach(($li)=>{$fruits.removeChild($li)});
+        // 얘 올바르게 써졌는지 확인바람 
+     </script>
+</body>
+</html>

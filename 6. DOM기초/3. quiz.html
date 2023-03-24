@@ -13,7 +13,7 @@
         <ul id="list1">
             <li>리스트1</li>
             <li>리스트2</li>
-            <li>리스트3</li>
+            <li id="li3">리스트3</li>
             <li>리스트4</li>
             <li>리스트5</li>
             <li>리스트6</li>
@@ -22,20 +22,22 @@
     </div>
 
     <script>
-        //1. id="list1"인 요소에 <li> 요소중  홀수번째 요소만 선택후 배경색상 yellow 적용   
-        const $lists = [...document.querySelectorAll('#list1 > li')];
+        const $lists = [...document.querySelectorAll('#list1 li')]; //1. querySlectorAll로 arrayLike 를 array 전환 
         console.log($lists);
 
-        //li랑 idx 도 뽑아주세요 
-        $lists.forEach(($li, idx) => {
-            if (idx % 2 === 0) $li.style.background = 'yellow';
-            else $li.style.background = 'gray';
+        
+        //배열의 꽃 forEach를 활용하기 배열.forEach(()=>{});
+        $lists.forEach(($li, idx) => { 
+            if ( idx % 2 === 1) $li.style.background = 'gray';
+            else $li.style.background = 'yellow';
         });
+
+        //1. id="list1"인 요소에 <li> 요소중  홀수번째 요소만 선택후 배경색상 yellow 적용   
 
         //2. id="list1"인 요소에 <li> 요소중   짝수번째 요소만 선택후 배경색상 gray 적용  
 
         //3. id="list1"인 요소에 <li> 요소중   첫번째 <li>요소만 선택후 폰트색상 red 적용   
-        // $oddElems[0].style.color = 'red';
+    
         $lists[0].style.color = 'red';
 
         //4. id="list1"인 요소에 <li> 요소중  마지막번째 <li>요소만 선택후 폰트색상 green 적용  
@@ -46,12 +48,85 @@
 
         //6. id="list1"인 요소에 <li> 요소중  3번째 이전 요소만 선택후 
         //   border: 2px dotted aqua 적용 (1, 2번째만 선택) 
-        document.querySelector('#list1 > li:first-child');
-
+        
         //7. id="list1"인 요소에 <li> 요소중  3번째 이후요소만 선택후
 
+        //   border  적용 (3번째부터 끝까지 선택)
+
+
+        /* 선생님 답변 
+        //1. id="list1"인 요소에 <li> 요소중  
+        //    홀수번째 요소만 선택후 배경색상 yellow 적용
+
+        const $liList = [...document.querySelectorAll('#list1 > li')];
+        console.log($liList);
+
+        // for (let i = 0; i < $liList.length; i++) {
+        //     if (i % 2 === 0) $liList[i].style.background = 'yellow';
+        // }
+
+        $liList.forEach(($li, idx) => {
+            if (idx % 2 === 0) $li.style.background = 'yellow';
+        });
+
+
+        // const $oddElems = [...document.querySelectorAll('#list1 li:nth-child(odd)')];   
+        // console.log($oddElems);
+
+        // for (let i = 0; i < $oddElems.length; i++) {
+        //     $oddElems[i].style.background = 'yellow';
+        // }
+
+        // for (const $li of $oddElems) {
+        //     $li.style.background = 'yellow';
+        // }
+
+        // $oddElems.forEach($li => $li.style.background = 'yellow');
+       
+        //2. id="list1"인 요소에 <li> 요소중   
+        //   짝수번째 요소만 선택후 배경색상 gray 적용  
+        $liList.forEach(($li, idx) => {
+            if (idx % 2 === 1) 
+                $li.style.background = 'gray';
+        });
+
+       
+        //3. id="list1"인 요소에 <li> 요소중   
+        //  첫번째 <li>요소만 선택후 폰트색상 red 적용   
+        const [$first, $second, ...$others] = $liList;
+        const $last = $others[$others.length - 1];
+
+        $first.style.color = 'red';
+        // $liList[0].style.color= 'red';
+        // document.querySelector('#list1 > li:first-child')
+      
+
+        //4. id="list1"인 요소에 <li> 요소중  
+        //   마지막번째 <li>요소만 선택후 폰트색상 green 적용  
+        $last.style.color = 'green';
+
+        //5. id="list1"인 요소에 <li> 요소중 
+        // 두번째 <li>요소만 선택후 font-style: italic 적용             
+        $second.style.fontStyle = 'italic';
+
+        //6. id="list1"인 요소에 <li> 요소중  3번째 이전 요소만 선택후 
+        //   border: 2px dotted aqua 적용 (1, 2번째만 선택) 
+        const twoElements = [$first, $second];
+        twoElements.forEach($li => {
+            $li.style.border = '2px dotted aqua';
+        });
+
+
+        //7. id="list1"인 요소에 <li> 요소중  3번째 이후요소만 선택후
         //   border 2px dashed violet 적용 (3번째부터 끝까지 선택)
-        
+        // $others.forEach($li => {
+        //     $li.style.border = '2px dashed violet';
+        // });
+
+        for (let i = 0; i < $liList.length; i++) {
+            if (i === 0 || i === 1) continue;
+            $liList[i].style.border = '2px dashed violet';
+        } */
     </script>
 </body>
 

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="fruits">
+        <li class="fr apple">사과</li>
+        <li class="fr banana">바나나</li>
+        <li class="fr grape">포도</li>
+    </ul>
+
+    <div class="box">
+        <p></p>
+    </div>
+
+   <script>
+    //ul 요소노드를 취득 : 자식들 데리고 올때 이렇게 하면 됨 
+    const $fruits = document.getElementById('fruits');
+    console.log($fruits);
+    //childNodes가 아니고 children 사용하면 됨 
+    const $children = [...$fruits.children];
+    // //유사배열을 배열로 복사하여 전환 
+
+    const $first = $children[0]; //첫번째 자식 
+    const $last = $children[$children.length - 1]; //마지막 자식 
+
+    // const $first = $fruits.firstElementChild; // 첫번째 자식 
+    // const $last = $fruits.lastElementChild;
+
+    $first.style.fontSize = '2em';
+    $last.style.transform = 'rotate(180deg)';
+
+    const $box = document.querySelector('.box');
+    
+    // //자식 요소의 유무 확인 : 논리 변환할때 앞에 느낌표 두개 붙일 것 
+    console.log(!!$box.children.length); // 0이면 falthy => false 
+
+    // // function hasChildren($target) {
+    // //     return !!$target.children.length;
+    // // }
+    // // console.log(haschildren($box));
+    // // 이렇게 만들어 쓰기도 가능 
+
+   </script>
+</body>
+</body>
+</html>

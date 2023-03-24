@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul class="users"> 
+        <li data-user-number="4321" data-role="common">김철수</li>
+        <li data-user-number="9999" data-role="admin">박영희</li>
+    </ul>
+
+    <script>
+        const [$u1, $u2] 
+        = [...document.querySelector('.users').children]; //li들을 쪼개서 $u1, $u2에 담는다 
+        //dataset 사용 
+        const kimNumber = +$u1.dataset.userNumber; // 문자여서 숫자 원할시 앞에 +
+        console.log(kimNumber + 10);
+
+        const role = $u2.dataset.role;
+        console.log(role);
+
+        $u1.dataset.role = 'gold'; // 변경됨 
+
+        $u1.dataset.hahaHoHo = '하하호호'; //추가됨
+
+        delete $u1.dataset.role;
+        delete $u1.dataset.hahaHoHo;
+
+
+    </script>
+</body>
+</html>

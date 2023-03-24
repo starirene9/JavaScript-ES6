@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="fruits">
+        <li>사과</li>
+        <li>바나나</li>
+        <li>포도</li>
+    </ul>
+    <script>
+        const $fruits = document.getElementById('fruits');
+
+        const $newLi = document.createElement('li');
+        $newLi.textContent = '망고';
+
+        // 내가 원하는 위치에 추가
+        // $fruits.insertBefore($newLi, $fruits.firstChild); //사과이전에 망고 존재 
+        // $fruits.insertBefore($newLi, $fruits.children[1]); //바나나 앞에 
+        //append 뒤에 더해주는거 말고, 이전에 넣어 주고 싶을때
+
+        $fruits.insertBefore($newLi, document.querySelector('#fruits li:first-child'));
+   
+        // 노드 이동 
+        console.log($fruits);
+        const [  $mango, $apple, $banana, $grape] = [...$fruits.children]; //자식들을 꺼내서 배열로 바꿈 
+        // // $fruits.appendChild(기존태그) 넣으면 이동, 새로운 태그 넣으면 추가 되는 기능 
+        $fruits.appendChild($mango); //기존 태그를 넣으면 맨 뒤로 이동 
+        $fruits.insertBefore($banana, $apple); //기존에 있는거 넣으면 사과 앞에 바나나가 놓여짐 
+
+
+
+   </script>
+</body>
+</html>
