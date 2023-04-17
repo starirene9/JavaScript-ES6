@@ -22,10 +22,10 @@
     //         $b2.style.width = '150px';
     //     };
         //클릭한 곳의 좌표는 브라우저가 안다. 
-        //e에다가 이벤트 정보를 브라우저가 쏴줌 
+        //e에다가 이벤트 정보를 브라우저가 쏴줌 : event를 e라고 적는다. 
         document.onclick = function(e) { // ({x, y}) <-여기서 destructuring해도 됨  
-            console.log(e);
-            const {x, y} = e; //.을 빼기 위한 객체 구조 분해 
+            // console.log(e);
+            // const {x, y} = e; //.을 빼기 위한 객체 구조 분해 
             // console.log(`x:${e.x}, y: ${e.y}`);
             const $em = document.querySelector('.msg');
             $em.textContent = `x:${e.x}, y: ${e.y}`;
@@ -38,7 +38,7 @@
         // console.log($textInput); 꼭 확인해볼것 
 
         $textInput.addEventListener('keyup', e => { 
-            // console.log(e);
+            console.log(e);
             const $show = document.querySelector('.show');
             if (e.key === 'Enter') { //콘솔에 Enter 뜸 
                 $show.textContent = $textInput.value; 

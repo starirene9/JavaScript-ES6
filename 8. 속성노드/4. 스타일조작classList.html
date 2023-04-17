@@ -62,6 +62,7 @@
 
         console.log($box.classList.contains('box'));
         console.log($box.classList.contains('apple'));
+        //이런식으로 콘솔로 찍으면서 확인할 것~! 
 
         // //toggle : 현재 해당 클래스가 없으면 추가 있으면 지움 
         $box.classList.toggle('circle');
@@ -73,17 +74,17 @@
         $btn.onclick = e => {
             $box.classList.toggle('circle');
 
-        //     const CLASSNAME = 'circle';
+            const CLASSNAME = 'circle';
 
-        //     if ($box.classList.contains(CLASSNAME)){
-        //         $box.classList.remove(CLASSNAME);
-            // }else {$box.classList.add(CLASSNAME);}
+            if ($box.classList.contains(CLASSNAME)){
+                $box.classList.remove(CLASSNAME);
+            }else {$box.classList.add(CLASSNAME);}
 
         };
 
-        // $btn.onclick = e => {
-        //     $box.classList.toggle('circle');
-        // };
+        $btn.onclick = e => {
+            $box.classList.toggle('circle');
+        };
 
     </script>
 </body>

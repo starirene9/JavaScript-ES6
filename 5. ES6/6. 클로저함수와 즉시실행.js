@@ -1,13 +1,13 @@
 // 클로저 : 중요한 기능을 헬퍼함수로 감싸서 변하지 않게 가둬둔다.
 // 즉시 실행함수
 
-// function calculator(n1, n2){
+function calculator(n1, n2){
 
-//     function add(){ // 중첩함수 = helper 함수
-//         return n1 + n2;
-//     }
-//     return add; // 괄호가 없으면 함수 자체를 던진 것임 
-// }
+    function add(){ // 중첩함수 = helper 함수
+        return n1 + n2;
+    }
+    return add; // 괄호가 없으면 함수 자체를 던진 것임 
+}
 
 // const zzz = calculator(5,7);
 // console.log(typeof zzz); //function 

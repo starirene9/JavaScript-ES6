@@ -29,15 +29,15 @@
         // //자식 노드 삭제 
         $fruits.removeChild($fruits.lastElementChild);
         
-        // //자식 노드 전체 삭제 
-        // $fruits.innerHTML = '';
+        //자식 노드 전체 삭제 
+        $fruits.innerHTML = '';
 
-        // const children = [...$fruits.children];
-        // for (const  $li of children) { //배열 반복문으로 꺼내기 
-        //     $fruits.removeChild($li); //반복할 행동 써놓기 
-        // }
+        const children = [...$fruits.children];
+        for (const  $li of children) { //배열 반복문으로 꺼내기 
+            $fruits.removeChild($li); //반복할 행동 써놓기 
+        }
 
-        // [...$fruits.children].forEach(($li)=>{$fruits.removeChild($li)});
+        [...$fruits.children].forEach(($li)=>{$fruits.removeChild($li)});
         // 얘 올바르게 써졌는지 확인바람 
      </script>
 </body>
