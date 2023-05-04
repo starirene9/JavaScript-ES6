@@ -18,11 +18,10 @@
         const $newLi = document.createElement('li');
         $newLi.textContent = '망고';
 
-        // 내가 원하는 위치에 추가
+        // 1: 추가 할 것을 앞에 쓰기 , 2: 누구 앞에 
         // $fruits.insertBefore($newLi, $fruits.firstChild); //사과이전에 망고 존재 
         // $fruits.insertBefore($newLi, $fruits.children[1]); //바나나 앞에 
-        //append 뒤에 더해주는거 말고, 이전에 넣어 주고 싶을때
-
+        
         $fruits.insertBefore($newLi, document.querySelector('#fruits li:first-child'));
    
         // 노드 이동 

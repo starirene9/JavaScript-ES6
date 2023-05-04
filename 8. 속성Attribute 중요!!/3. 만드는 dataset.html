@@ -13,17 +13,22 @@
     </ul>
 
     <script>
-      
+        // 내부 식별 데이터로 사용 , 서버와의 통신에서 값을 주고 받을때 
+
+        // destructuring 
         const [$u1, $u2] 
-        = [...document.querySelector('.users').children]; //li들을 쪼개서 $u1, $u2에 담는다 
-        //dataset 사용 
-        const kimNumber = +$u1.dataset.userNumber; // 문자여서 숫자 원할시 앞에 +
+        = [...document.querySelector('.users').children]; 
+
+        //dataset : dataset.userName. dataset.role '-의'
+        //문자"" 여서 숫자 원할시 앞에 +
+        const kimNumber = +$u1.dataset.userNumber; 
         console.log(kimNumber + 10);
 
         const role = $u2.dataset.role;
         console.log(role);
 
         $u1.dataset.role = 'gold'; // 변경됨 
+        delete $u1.dataset.role;
 
         $u1.dataset.hahaHoHo = '하하호호'; //추가됨
 

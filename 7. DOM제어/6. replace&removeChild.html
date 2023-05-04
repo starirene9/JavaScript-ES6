@@ -17,14 +17,16 @@
     <script>
         const $fruits = document.getElementById('fruits');
 
-        //새로운 li생성
-        const $newLi = $fruits.firstElementChild.cloneNode(); //다음처럼 복사
+        //새로운 li생성 
+        // 아이디와 클래스 모두 다 같이 복사하고 싶을 땐? cloneNode()
+        const $newLi = $fruits.firstElementChild.cloneNode(); 
         $newLi.textContent = '복숭아';
 
         console.log($newLi);
 
-        // //노드 교체 : replaceChildr : remove와 insert를 한방에 끝내는 replace
-        $fruits.replaceChild($newLi, $fruits.firstElementChild); //새롭게 추가되는애 앞에, 나가는 애를 뒤에 
+        // //노드 교체 : replaceChild : remove와 insert를 한방에
+        // 새롭게 추가되는 애를 앞에, 나가는 애를 뒤에 
+        $fruits.replaceChild($newLi, $fruits.firstElementChild); 
 
         // //자식 노드 삭제 
         $fruits.removeChild($fruits.lastElementChild);
@@ -32,6 +34,8 @@
         //자식 노드 전체 삭제 
         $fruits.innerHTML = '';
 
+
+        // 유사배열 -> 배열로 바꾸고 -> 하나씩 꺼내서 -> 반복문 돌리기~! 
         const children = [...$fruits.children];
         for (const  $li of children) { //배열 반복문으로 꺼내기 
             $fruits.removeChild($li); //반복할 행동 써놓기 

@@ -34,27 +34,25 @@ function alertUserInfo(wannaSay) { // 2. 대신 wannaSay 함수가 뭔지 알려
         wannaSay(user); // 1. user를 줄테니까 니가 하고 싶은 말 써라 
     }
 }
-alertUserInfo(user => console.log(`나는 ${user.userName}님이시다. 우하하하`));
+alertUserInfo(u => console.log(`나는 ${u.userName}님이시다. 우하하하`));
 //alertUserInfo(function(user){}); // 여기 안에 function만 정해서 보내주기
+
+
 
 console.log('=======================1.forEach()');
 //배열 고차 함수 : 함수형 프로그래밍의 꽃 for, if, for of 안써도 됨
 //forEach() : 배열의 요소를 반복하면서 하나씩 꺼내줌 => 구체적으로 뭐할지는 내가 쓰는 것 
 // .forEach(() => {}); 이렇게 생긴 구조 
+
+// const useList = [{},{},{}];
 userList.forEach(user => {
     console.log(user.address);
 });
 
 
 const numbers = [10, 20, 30, 40];
-// let total = 0;
-// for (let n of numbers) {
-//     total += n;
-// }
-// console.log(`총합: ${total}`);
-
-//for문을 다음과 같이 바꿀 수 있음 
 let total = 0;
+
 numbers.forEach((n) => {
     total += n;
 });
@@ -97,14 +95,13 @@ const new3Array = filterUserLivedInSeoul();
 console.log(new3Array);
 
 console.log('===================4.특정 필터조건에 의해 필터링하는 함수 ');
-// 계속 바꿀순 없으니 특정 필터조건에 의해 필터링하는 함수 
 
-function filter(condition) { // 2. 나한테 codition 함수가 뭔지 알려줘
+function filter(condition) { // 2. codition 함수가 뭔지 알려주기
     // 새로운 배열 생성
     const filteredArray = [];
 
     for (const user of userList) {
-        if (condition(user)) { //1. 조건절에 야, 내가 그냥 user 다 넘길게 
+        if (condition(user)) { //1. 조건절만 바뀌면 됨  
             filteredArray.push(user);
         }
     }

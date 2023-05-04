@@ -25,12 +25,13 @@
         console.log($greet.textContent);
 
         $greet.textContent = ' 안녕하세요!'; // 모든 텍스트 조작 
-        $greet.innerHTML = '<span>안녕</span>하세요!'; //텍스트와 태그 같이 조작
+        //텍스트와 태그 같이 조작 중요~! 반복만으로 여러개 태그 만들기 쌉가능 
+        $greet.innerHTML = '<span>안녕</span>하세요!'; 
 
         // //모든 자식태그를 삭제 : 다 지우기 기능 같은 것 : 중요! 
         $greet.innerHTML = '';
 
-        // // 자식 태그를 추가 
+        // 기존에 있는 것에  태그를 추가 
         $greet.innerHTML += '<span>메롱메롱</span>'
     </script>
    

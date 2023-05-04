@@ -13,7 +13,7 @@
             background: orange;
             display: flex;
             justify-content: center;
-            align-content: center;
+            align-items: center;
             font-size: 20px;
             color: red;
         }
@@ -43,37 +43,45 @@
 
     <script>
         const $box = document.querySelector('.box');
+        
         $box.style.fontStyle = 'italic';
         // 인라인 스타일 조작이라서 무조건 됨 (점수 1000점)
-        // $box.style.display = 'none';
+        $box.style.display = 'none';
 
         // 클래스 조작 // className쓰지 말것 
         // $box.className = 'box blue';
 
+        // replace 라는 표현 꽤나 중요할듯~! 
         // classList : add, remove, replace, contains, toggle 
         $box.classList.add('circle');
+
+        // 한번에 클래스가 여러개가 부여 가능 ~!
         $box.classList.add('aaa', 'bbb', 'ccc');
 
         $box.classList.remove('green');
-        $box.classList.remove('aaa', 'ccc'); //동시에 지우기 가능 
+        // 한번에 여러개 지우기 가능 
+        $box.classList.remove('aaa', 'ccc'); 
 
         $box.classList.add('green');
+        // replace는 새로운것을 뒤에다가 : 바꿔치기 꽤나 중요!!!!!!
         $box.classList.replace('green', 'blue');
 
+        // 있는지 물어보고 False / true 반환  = > 메뉴 열고 닫기로 적용 
         console.log($box.classList.contains('box'));
         console.log($box.classList.contains('apple'));
-        //이런식으로 콘솔로 찍으면서 확인할 것~! 
 
-        // //toggle : 현재 해당 클래스가 없으면 추가 있으면 지움 
+        // //toggle : 현재 해당 클래스가 없으면 추가 있으면 지움 = >  버튼 열고 닫기 적용 가능 
         $box.classList.toggle('circle');
         $box.classList.toggle('circle');
 
         const $btn = document.getElementById('add');
 
-        // 매 우 중 요 ~! 
+        // 매 우 중 요 ~!!!!!!
         $btn.onclick = e => {
             $box.classList.toggle('circle');
+            // 상수처리로 클래스 이름  한번에 바꾸기 쌉가능 
 
+            // 토글 모르면 하단과 같이 구현 
             const CLASSNAME = 'circle';
 
             if ($box.classList.contains(CLASSNAME)){

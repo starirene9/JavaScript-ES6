@@ -55,13 +55,13 @@ function calculator(n1, n2){
 // 상태유지 stateful <-> stateless 를 위해서 클로저 사용 
 // count도 클로저 라는 함수 안에 가둬 놓은 것이라고 보면 됨 
 
-// const increaseClosure = () => {
+const increaseClosure = () => {
 
-//     let count = 0;
-//     return () => ++count; //카운트를 증가 시키는 보조함수!!!!
-// };
+    let count = 0;
+    return () => ++count; //카운트를 증가 시키는 보조함수!!!!
+};
 
-// const increase = increaseClosure(); // () => ++count가 작동 
+const increase = increaseClosure(); // () => ++count가 작동 
 
 // console.log(increase()); //1
 // console.log(increase()); //2

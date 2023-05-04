@@ -1,32 +1,32 @@
-// // 즉시 실행 함수 (function(){} :정의구간)(호출구간); 
-// // const increase = (function(){})();
-// const increase = (()=>{
-//     let count = 0;
-//     return () => ++ count;
-// })();
+// 즉시 실행 함수 (function(){} :정의구간)(호출구간); 
+// const increase = (function(){})();
+const increase = (()=>{
+    let count = 0;
+    return () => ++ count;
+})();
 
-// const decrease = (()=>{
-//     let count = 0;
-//     return () => -- count;
-// })();
+const decrease = (()=>{
+    let count = 0;
+    return () => -- count;
+})();
 
-// console.log(increase()); //1
-// console.log(increase()); //2
-// console.log(decrease()); //-1 : 각자의 count가 이름은 똑같아도 영역이 다르니까 별개임
+console.log(increase()); //1
+console.log(increase()); //2
+console.log(decrease()); //-1 : 각자의 count가 이름은 똑같아도 영역이 다르니까 별개임
 
 //===========이럴땐 어떻게 해야할까? 카운트를 하나만 
-// function counterClosure () {
+function counterClosure () {
 
-//     let count = 0; // 결론 : 카운트를 공유해야한다.
+    let count = 0; // 결론 : 카운트를 공유해야한다.
 
-//     function increase () {
-//         return ++count; 
-//     }
-//     function decrease () {
-//         return --count;
-//     }
-//     return { increase, decrease }; // 이 객체가 리턴됨 
-// }
+    function increase () {
+        return ++count; 
+    }
+    function decrease () {
+        return --count;
+    }
+    return { increase, decrease }; // 이 객체가 리턴됨 
+}
 
 // const counter = counterClosure(); // counter : 객체(increase, decrease가 들어옴)
 // // 객체 안에 있는 함수를 하나씩 추출 중 

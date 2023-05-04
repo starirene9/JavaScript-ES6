@@ -14,18 +14,23 @@
     </ul>
 
     <script>
-        const $fruits = document.getElementById('fruits'); // queryselector사용시 #fruits
+
         //항상 요청은 부모한테 요청해야한다.
+        const $fruits = document.getElementById('fruits'); // queryselector사용시 #fruits
         
-        // li태그 생성 : element (태그) <li></li>//비어있는 li생성 완료
+        // li태그 생성 : element (태그) <li></li> 생성 완료 
         const $newLi = document.createElement('li');
-        // text 추가 : textContent  <li>바나나</li>
+        // text 조작 : textContent  <li>바나나</li>
         $newLi.textContent = '딸기';
         //새로운 노드를 자식으로 추가하는 명령 <ul 아래로 들어가게 됨>
         $fruits.appendChild($newLi);
 
-        //============아래는 상위레벨
-
+         // 만들면서 추가하는 함수 : 이게 중요~!!
+         // .없애기 위한 객체구조분해할당 매개변수에서 함 
+         function append( {$parent, tagName, text} ) { 
+            appendNewTag($parent, makeTag(tagName, text));
+        }
+    
         // 태그이름과 텍스트를 전달 받으면 태그를 생성하는 함수 
         function makeTag(tagName, text = '') { //tagName과 text를 줘 
             const $newTag = document.createElement(tagName);
@@ -38,18 +43,13 @@
             $parent.appendChild($target);
         }
 
-        //만들면서 추가하는 함수 
-        function append({$parent,tagName,text}) { // .없애기 위한 객체분해 
-            appendNewTag($parent, makeTag(tagName,text));
-        }
-
         const fruitNames = ['바나나', '딸기', '포도', '자몽', '레몬'];
 
         fruitNames.forEach(fn => {
             append({
                 $parent: $fruits,
                 tagName: 'li',
-                text: fn
+                text: fn   //배열을 하나씩 꺼내서 text에 넣어 줌 
             });
         });
 
