@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+  /* CSS 코드 */
+@keyframes moveBackground {
+  0% {
+    background-position: 0% 30%;
+  }
+
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+body {
+  background-image: url('/assets/img/bulldog.jpg');
+  background-size: 700px 500px;
+  animation: moveBackground 10s linear infinite;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.loginWrap {
+  background: rgba(255, 255, 255, 0.955);
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 27%;
+  margin: 100px auto;
+  text-align: center;
+}
+
+section {
+  padding: 25px;
+}
+
+section>* {
+  width: 80%;
+  margin: 3px auto;
+  border-radius: 5px;
+}
+
+section.logInwithFB {
+  padding-bottom: 0;
+  line-height: 30px;
+}
+
+section.logInwithFB h1 {
+  color: black;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+section.logInwithFB #petstaLogo {
+  width: 50px;
+  margin-right: 20px;
+  margin-left: -5%;
+  margin-bottom: 10px;
+}
+
+section.logInwithFB>* {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+section.logInwithFB button {
+  background: rgb(61, 61, 227);
+}
+
+section.logInwithFB .loginFB {
+  color: white;
+  font-weight: 500;
+}
+
+section.signUpPage {
+  display: flex;
+  flex-direction: column;
+}
+
+section.signUpPage .addressFields {
+  display: flex;
+  gap: 10px;
+}
+
+section.signUpPage .addressFields input {
+  flex-grow: 1;
+}
+
+section.signUpPage button {
+  background: rgb(61, 61, 227);
+  color: white;
+  font-weight: 500;
+  letter-spacing: 2px;
+  margin-top: 10px;
+}
+
+section.logIn>* {
+  width: 90%;
+  font-size: 1.2em;
+  background: white;
+  display: flex;
+}
+
+section.logIn p {
+  margin-top: 20px;
+}
+
+</style>
+
+<body>
+
+    <div class="loginWrap">
+        <form action="/user/sign-up" name="signup" id="signUpForm" method="post">
+            <section class="logInwithFB">
+                <h1><img src="/assets/img/logo-instagram.png" alt="로고이미지" id="petstaLogo">Petstagram</h1>
+                <p>Sign up to see photos and videos from your friends</p>
+                <button>
+                    <a href="https://www.facebook.com/" class="loginFB"><span class="fab fa-facebook"></span> Log in
+                        with Facebook</a>
+                </button>
+                <div>
+                    <div class="or"> OR </div>
+                </div>
+            </section>
+            <section class="signUpPage">
+                <p id="showMessage"></p>
+                <input type="text" placeholder="전화번호 또는 이메일" name="email" id="email" class="phone">
+                <div class="addressFields">
+                    <select type="text" placeholder="주소" name="adds" id="adds">
+                        <option value="">구 선택</option>
+                        <option value="강남구">강남구</option>
+                        <option value="강동구">강동구</option>
+                        <option value="강북구">강북구</option>
+                        <option value="강서구">강서구</option>
+                        <option value="관악구">관악구</option>
+                        <option value="광진구">광진구</option>
+                        <option value="구로구">구로구</option>
+                        <option value="금천구">금천구</option>
+                        <option value="노원구">노원구</option>
+                        <option value="도봉구">도봉구</option>
+                    </select>
+                </div>
+                <input type="text" placeholder="동" name="dong" id="dong">
+                <input type="text" placeholder="사용자 이름" name="userName" id="userName">
+                <input type="text" placeholder="아이디" name="id" id="id">
+                <input type="text" placeholder="비밀번호" name="pwd" id="pwd">
+                <button id="signup-btn">Sign Up</button>
+                <p>By signing up, you agree to our Terms, Data Policy and Cookies Policy.</p>
+            </section>
+            <section class="logIn">
+                <button class="haveAccount" style="border-color: darkgrey;">
+                    <a href="/user/login" class="noneunderline">
+                        <p>Have an account?
+                            <strong style="color:rgb(89, 166, 221)"> Log in</strong>
+                        </p>
+                    </a>
+                </button>
+            </section>
+        </form>
+    </div>
+</body>
+
+</html>
