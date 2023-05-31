@@ -39,11 +39,11 @@
 
         $textInput.addEventListener('keyup', e => { 
             console.log(e);
-            // const $show = document.querySelector('.show');
-            // if (e.key === 'Enter') { //콘솔에 Enter 뜸 
-            //     $show.textContent = $textInput.value; 
-            //     // $textInput.value = '';
-            // }
+            const $show = document.querySelector('.show');
+            if (e.key === 'Enter') { //콘솔에 Enter 뜸 
+                $show.textContent = $textInput.value; 
+                // $textInput.value = '';
+            }
         });
 
     

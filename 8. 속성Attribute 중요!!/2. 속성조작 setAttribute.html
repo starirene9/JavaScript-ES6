@@ -16,7 +16,7 @@
             background: red;
         }
     </style>
-    <div class="box" id="item" title="안녕하세요"></div>
+    <div class="box" id="item" title="이빵꾸똥꾸야"></div>
 
     <script>
         const $box = document.querySelector('.box');
@@ -29,15 +29,15 @@
 
         // //속성값 변경 : 있는거 쓰면 수정이고 
         $box.setAttribute('id', 'watermelon');
-
-        // //속성값 추가 : 없는것 쓰면 추가이다.  
-        $box.setAttribute('style', 'border-radius:50%'); //내부에 추가됨 
-       
-        // //속성값 제거 
+        //
+        // // //속성값 추가 : 없는것 쓰면 추가이다.
+        $box.setAttribute('style', 'border-radius:50%'); //내부에 추가됨
+        //
+        // // //속성값 제거
         $box.removeAttribute('id');
-
-        //속성값 유무 확인 : setAttribute 때문에 안전한 수정을 위해서 이것 먼저 확인 
-        console.log($box.hasAttribute('id')); //false
+        //
+        // //속성값 유무 확인 : setAttribute 때문에 안전한 수정을 위해서 이것 먼저 확인
+        // console.log($box.hasAttribute('id')); //false
 
     </script>
 </body>

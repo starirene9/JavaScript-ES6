@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        label {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+<div class="register">
+
+    <label>
+        # 댓글내용 : <input type="text" name="text">
+    </label>
+    <label>
+        # 작성자 : <input type="text" name="author">
+    </label>
+    <label>
+        # 원본게시글번호 : <input type="number" name="bno">
+    </label>
+    <label>
+        <button id="insert">댓글등록</button>
+    </label>
+</div>
+
+<script>
+
+    document.getElementById('insert').onclick = e => {
+
+        // 요청 헤더와 요청 바디를 저장하는 객체
+        const requestInfo = {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({
+                text: document.querySelector('[name=text]').value,
+                author: document.querySelector('[name=author]').value,
+                bno: +document.querySelector('[name=bno]').value
+            })
+        };
+
+        fetch('http://localhost:8181/api/v1/replies', requestInfo)
+            .then(res => {
+                if (res.status === 200) {
+                    alert('등록 성공!');
+                    return res.json();
+                } else {
+                    alert('등록 실패!');
+                }
+            })
+            .then(result => {
+                console.log(result);
+            });
+    };
+
+</script>
+</body>
+</html>

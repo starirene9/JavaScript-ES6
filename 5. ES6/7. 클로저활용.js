@@ -39,13 +39,13 @@ function counterClosure () {
 
 //=====================화살표 함수로 간편화 시키기 ????
 // 화살표 + 즉시실행함수 
-// const counter = (() => {
-//     let count = 0;
-//     return {
-//         increase: () => ++count,
-//         decrease: () => --count
-//     };
-// })();
+const counter = (() => {
+    let count = 0;
+    return {
+        increase: () => ++count,
+        decrease: () => --count
+    };
+})();
 
 // const { increase, decrease } = counter;
 
