@@ -1,0 +1,8 @@
+
+.hide, .list-group {
+    display: none;
+}
+
+.show {
+    display: block;
+}

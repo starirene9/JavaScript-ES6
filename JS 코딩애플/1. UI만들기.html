@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+<!--UI 만드는 법
+1. 미리 HTML/CSS 디자인 (필요한 것 미리 숨김)
+2. 버튼 누르면 보여달라고 코드 짜기 (자바스크립트로) -->
+
+<div class="alert-box" id="onOff">알림창임
+    <button onclick="알림창열기('none')">닫기</button>
+</div>
+<button onclick="알림창열기('block')">버튼</button>
+
+<!--빠진 부분 : .style.display = 'block'; -->
+
+<script>
+<!-- 긴 코드는 따로 function으로 뺄 것 -->
+    function 알림창열기(구멍) {
+        document.getElementById('onOff').style.display = 구멍;
+    }
+// 문자는 '' 안에
+// 가변적인 부분을 구멍 뚫기 : 구멍자리에 내가 원하는걸 넣기 구멍 = parameter / argument
+
+
+// 알림창열기('바보'); 구멍에 '바보'넣어서 알림창열기 안의 코드 실행해주기
+// 알림창열기('block');
+
+// function 알림창열기 (구멍, 구멍2) { // 위에서 부터 떨어진다고 생각하기
+//   document.getElementById(구멍2).style.display = 구멍;
+// }
+// 알림창열기('ㅋㅋㅋ','ㅎㅎㅎ');
+// 파라미터 여러개 전달 가능
+
+
+//     소괄호 붙으면 다 함수이다.
+//     function 알림창닫기() {
+//         document.getElementById('onOff').style.display = 'none';
+//     }
+// 이제는 함수 두개 필요 없고 하나만으로 가능
+
+</script>
+
+</body>
+</html>

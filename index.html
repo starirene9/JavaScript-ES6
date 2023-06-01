@@ -1,18 +1,28 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head3>
+<head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <script src="5. ES6/4. 콜백함수.js" defer></script>
-    <!-- defer: script가 헤드에 있지만 body에 있는것을 먼저하고 나서 처리해줘라 -->
-    <link rel="stylesheet" href="dating.css">
-</head3>
+</head>
 <body>
-    <h1>화이팅!</h1>
-    <img class="danaka" src="다나카.jpeg" alt="다나카 사장님 사진">
-</body>
+<h1 id="hello">안녕하세요</h1>
+<h2 id="hi">프론트엔드 개발자 입니다.</h2>
+<script>
+    document.getElementById('hello').innerHTML = '안녕!';
+    // 문서의 html id가 hello인 html 요소 하나를 가지고 와서 그 안에다가 안녕으로 바꿔라
+    // 등호는 오른쪽을 왼쪽에 집어 넣어 줘라 라는 뜻임  1. 아이디 넣고 2. 무엇을 3. 어떻게
+    document.getElementById('hello').style.color = 'red';
+    document.getElementById('hello').style.fontSize = '16px';
+    // ''안에 넣어줘야함 그리고 글자 캐멀 케이스임 ㅎㅎ 검색 할 때 구글로 검색하기!
 
+    // 자바스크립트 구글에 찾아서 넣기
+    document.getElementById('hi').innerHTML = '프론트엔드 개발자 구빛나 입니다.';
+    // 위의 문법을 셀렉터라고 부름 : 하나하나 상세히 컴퓨터에서 설명하는 습관을 가져야 함.
+
+
+</script>
+</body>
 </html>

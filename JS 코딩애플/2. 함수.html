@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+<div class="alert-box" id="alert">
+  <p>알림창임</p>
+  <button onclick="알림창열기('none')">닫기</button>
+</div>
+<button onclick="알림창열기('block', '아이디입력하세요')">버튼1</button>
+<button onclick="알림창열기('block', '비번입력하세요')">버튼2</button>
+
+<script>
+    // 버튼 1, 2 에 기능 개발하기
+    // 버튼1 누르면 p 태그가 아이디입력하세요 로 변한다.
+    // 버튼2 누르면, p 태그의 innerhtml이 가 비번 입력하세요 로 변한다.
+
+  function 알림창열기 (구멍, 구멍2) {
+    document.getElementById('alert').style.display = 구멍;
+    document.querySelector('p').innerHTML = 구멍2;
+  }
+
+  // function 알림창열기 (구멍, 구멍2) {
+  //
+  // }
+  //   알림창열기('',''); //파라미터 작명은 아무렇게나 가능하고 여러개 가능함
+
+</script>
+</body>
+</html>

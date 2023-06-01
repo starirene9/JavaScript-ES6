@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="alert-box" id="alert">
+  <p>알림창임</p>
+  <button id="close">닫기</button>
+</div>
+
+<button onclick="알림창열기('block')">버튼1</button>
+<button onclick="알림창열기('block')">버튼2</button>
+<script>
+
+  // addEventListener(파라미터 2개 필요!) 얘를 클릭하면 안의 함수를 실행시켜 준다.
+  // event란 ? 웹사이트에서 스크롤, 드래그, 클릭등 유저들이 조작을 가하는 것.
+  // click 대신에 keydown, scroll, mouseover 등을 넣어 주면 됨
+  document.getElementById('close').addEventListener('click', function(){
+    document.getElementById('alert').style.display = 'none';
+  });
+  // 파라미터 자리에 들어가는 함수를 콜백함수라고 부른다.
+
+  function 알림창열기(구멍) {
+    document.getElementById('alert').style.display = '구멍';
+  }
+
+
+</script>
+</body>
+</html>
