@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="hello"> 안녕하세요 </p>
+    <button id="button">버튼</button>
+</body>
+
+<script>
+    
+    document.getElementById('button').addEventListener('click', function(){
+        change('넌 세상 천재야')
+    })
+
+    function change(파라미터){
+        document.getElementById('hello').innerHTML = 파라미터
+    }
+
+    for (var i= 0; i<5; i++){
+        console.log('하이');
+    }
+
+  
+</script>
+</html>

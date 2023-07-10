@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function 삼육구게임(n) {
+        if (n % 3 === 0) {
+            for (let i = 0; i < n / 3; i++) {
+                console.log('박수');
+            }
+        } else {
+            console.log("통과");
+        }
+    }
+
+    //6 / 3 = 2인데 2와 박수횟수를 곱해준다.
+
+    삼육구게임(9);
+
+
+
+    function 합격했냐(score1, score2) {
+
+        if (score1 < 40 || score2 < 40) {
+            console.log("과락");
+        } else if (score1 + score2 >= 120) {
+            console.log("합격");
+        } else {
+            alert("제대로 입력하셈");
+        }
+        // 1차 : 개론 100점 만점
+        // 2차 : 민법r
+        // 개론 + 민법 >= 120 면 "합격"
+        //but 둘 중 하나가 <40 "과락으로 불합격
+    }
+
+    합격했냐(1,100);
+
+    let age = 3;
+    const birthplace = '한국';
+
+    // let 변수는 재선언이 불가능 하나 재할당 가능함
+
+
+    var 예금액 = 10000;
+    var 미래예금액 = 예금액 * 1.2 * 1.2;
+    // var 미래예금액 = 예금액 * 1.15 * 1.15;
+
+    function 예금액계산기(예금액){
+
+        if(예금액 < 50000) {
+            미래예금액 = 예금액 * 1.15 * 1.15;
+        } else if(예금액 >= 50000) {
+            미래예금액 = 예금액 * 1.2 * 1.2;
+        }
+    }
+
+    console.log(미래예금액);
+
+</script>
+</body>
+</html>

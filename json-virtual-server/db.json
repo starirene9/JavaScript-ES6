@@ -1,0 +1,35 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "account": "abc1234",
+      "userName": "주차킹",
+      "address": "캘리포니아"
+    },
+    {
+      "id": 2,
+      "account": "def9999",
+      "userName": "홍길똥",
+      "address": "한양동성"
+    },
+    {
+      "id": 7,
+      "account": "luckygirl",
+      "userName": "빛나쿠",
+      "address": "분당"
+    },
+    {
+      "account": "starirene9",
+      "userName": "구빛나",
+      "address": "ㅎㅎㅎ",
+      "id": 8
+    },
+    {
+      "account": "gd",
+      "userName": "용가리",
+      "address": "히히허허허",
+      "id": 9
+    }
+  ],
+  "boards": []
+}
