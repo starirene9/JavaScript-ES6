@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // var 문자 = '손흥민'; // ES6부터 백틱 사용가능 함 (backquote)장점
+        // // 1. 안에 엔터키 넣기 가능 
+        // // 2. 중간중간 변수 넣기 쉬움 : 백틱 사용하고 ${변수} 사용이 편리함 
+
+        // var 변수 = '구빛나';
+        // var 문자 = `안녕하세요 ${변수} 입니다`;
+        // console.log(문자);
+
+        // // tagged literal : 해체 분석을 할 수가 있음 
+        // // -> 단어 순서 변경, 단어 제거, 변수 위치 옮기기 가능 
+        // 해체분석기 `안녕하세요 ${변수} 입니다`;
+
+        // function 해체분석기(문자, 변수) { 
+        //     console.log(문자[1] + 변수 + 문자[0]) // 입니다 구빛나 안녕하세요가 나옴 
+        //     // console.log(문자들); // 파라미터1 문자들을 array화 해줌  
+        //     // console.log(변수들);  // 파라미터2 ${변수}를 뜻함
+        // }
+
+
+
+
+
+        var pants = 0;
+        var socks = 100;
+
+        `바지${pants} 양말${socks}` // 1. 백틱 사용
+
+        빛나해체기 `바지${pants} 양말${socks}` // 2. 해체분석기 사용 
+
+        //Q. 문자 중간 양말과 바지 단어 순서를 바꾸고 싶음 어떻게 함?
+        // function 빛나해체기(문자, 변수1, 변수2) { // 변수가 많으면 spread operator 사용 ...변수들
+        //     console.log(문자[0] + 변수2 + 문자[1] + 변수1);
+
+        // }
+
+        //Q. pants가 0개이면 바지안팔아요 양말 100 라는 문자로 바꾸는 해체 분석기 제작
+        function 빛나해체기(문자, 변수1, 변수2) {
+            if(변수1 == 0){
+                console.log(문자[0] + ' 안 팔아요' + 문자[1] + 변수2);
+            } else {
+                console.log(문자[0] + 변수2 + 문자[1] + 변수1);
+            }
+            
+        }
+        
+    </script>
+</body>
+
+</html>

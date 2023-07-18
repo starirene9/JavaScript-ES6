@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var 어레이 = ['hello', 'world'];
+        // spread operator
+        // 1. Array에 붙이면 대괄호를 제거함.
+        // 2. 중괄호, 대괄호, 함수 소괄호 안에서만 사용 가능 
+        console.log(어레이);
+        console.log(...어레이);
+
+        var 문자 = '앗살렘알레쿰';
+        console.log(...문자); // 앗 살 렘 알 레 쿰 : 문자가 해체 되어서 나옴 
+
+        var a = [1,2,3];
+        var b = [4, 5];
+        var c = [...a, ...b]; // 1,2,3
+        console.log(c); // [1,2,3,4,5] 어레이를 합치거나 복사(딥카피) 할때 자주 사용 
+        // 그냥 등호로 추가하면 값을 공유함 reference data type : array, object 
+
+        var o1 = {a : 1, b : 2}
+        var o2 = {...o1, c : 3} // 풀어헤쳐서 다시 나열해 줌 
+        console.log(o2);
+        var o3 = {...o2, a : 2}; // 풀어 헤친 뒤에 다시 중괄호 안에 넣어주면 딥카피 됨 
+        // 근데 카피하다가 값 중복이 일어나면?  
+        // 가장 뒤에 있는것을 적용함 <- 이 원리를 이용할것!
+        console.log(o3);
+
+        function 더하기(a,b,c) {
+            console.log(a + b + c);
+        }
+
+        var 어레이 = [10, 20, 30];
+        더하기(어레이[0],어레이[1],어레이[2]); // array 해체 작업이 귀찮음
+
+        더하기.apply(undefined, 어레이); // 옛날 방식 
+        // apply 자바 스크립트 내장 함수 
+
+        더하기(...어레이); // 요즘 방식 : 어레이 안에 있는 대괄호가 제거된게 들어감 (spread oeprator)
+
+        var person = {
+            인사 : function(){
+                console.log(this.name + '안녕');
+            }
+        }
+
+        var person2 = {
+            name: '구빛나 개발자'
+        }
+
+        person.인사.apply(person2, [1, 2]); // person2.인사(); 만든거라고 보면 됨
+        // apply는 파라미터로 array 집어 넣기 가능 
+        person.인사.call(person2, 1, 2); 
+        // call 함수는 파라미터 다음과 같이 받음 
+
+        
+
+
+
+    </script>
+</body>
+</html>
