@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 유사한 class를 하나 더 만들고 싶으면 extends
+        // class, prototype, constructor 를 알아야 사용 가능 
+
+        class 할아버지 {
+            constructor(name) {
+                this.성 = 'Kim';
+                this.이름 = name;
+            }
+            sayHi(){
+                console.log('안녕 나는 할아버지에요'); 
+                // 할아버지.prototype에 추가됨   
+            }
+        }
+
+        var 할아버지1 = new 할아버지('코코');
+        // 성, 이름 
+
+        // 이것과 유사한 아버지의 속성을 만들고 싶다 
+        class 아버지 extends 할아버지 {
+            constructor(name) { 
+                // 상속 받을때 그냥 this 쓰면 안되고 super 상속 받아야함 
+                super(name); 
+                // super는 물려받는 class의 constructor 라는 뜻  
+                // name 파라미터도 받아야 하므로 위 아래에 name을 넣어 줌 
+                // 파라미터 두개 받고 싶으면? 두개 다 맞춰서 써 주면 됨 
+                // constructor 안에 쓰면 부모 class의 constructor를 의미 
+                this.나이 = 50; 
+                // super을 사용하고 this 사용 가능 
+            }
+            sayHi(){
+                console.log('안녕 나는 아버지에요');
+                super.sayHi();
+                // 부모 class의 prototype을 의미 ()
+                // console.log('안녕 나는 할아버지에요'); 
+            }
+        }
+        var 아버지1 = new 아버지('세종대왕');
+        // 파라미터를 집어 넣어 주어야함 
+        // 성, 이름, 나이 까지 나옴 
+
+        console.log(아버지1.sayHi); // 상속 받은 것 사용 가능 
+        // 나랑 가까운 것 출력해 줌
+
+
+
+
+    </script>
+</body>
+</html>

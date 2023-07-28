@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 이전 상속 방식 => Constructor
+
+        // ES5 방식 => Object.create
+        // Object.create(물려받을 부모 object);
+        // contstructor 써도 되지만 Object.create 써도 됨 
+
+        var 부모 = { name : 'Kim', age : 50 };
+        
+        var 자식 = Object.create(부모);
+        
+        console.log(자식) // {}
+        console.log(자식.name) // Kim <- 상속 기능 구현 가능
+        자식.age = 20;
+        console.log(자식.age); //20 
+        // 1차적으로 나에게 물어보고 없으면 2차적으로 부모 
+
+        var 손자 = Object.create(자식); // 자식의 자식도 만들수 있음
+        // 자식을 prototype으로 사용하겠다
+        // name 과 age 사용 가능 
+        console.log(손자.age); // 20 자식의 age
+
+        // ES6 방식 Class
+        class 부모님 {
+            constructor() {
+                this.name = 'Kim';
+                // this.sayHi = function(){
+                //     console.log('Hello');
+                // } // 1. constructor 에 추가하던가 
+            }
+            sayHi(){ // 2. 여기에 쓰면 부모의 prototype에 추가됨 -> 모든 자식이 쓸 수 있는 내장 함수를 만들고 관리도 편함 
+                    console.log('Hello');
+                }
+        }
+
+        // 함수 추가 하는 법은?
+        부모님.prototype.sayHello = function(){
+            console.log('부모님께 효도하세요');
+        }
+
+        var 후손 = new 부모님();
+        후손.__proto__ // 부모 유전자가 출력됨 prototype : 원형이라는 뜻 
+        Object.getPrototypeOf(후손); // 부모님 prototype을 출력해주세요 
+
+        // 객체 지향 문법을 쓰는 이유 ?
+        // Object를 여러개 만들어 쓰려고 하는 것 
+
+
+    </script>
+</body>
+</html>
