@@ -7,8 +7,18 @@
     <title>Document</title>
 </head>
 <body>
-    <script>
-        
+    <script type="module">
+        // type을 모듈이라고 적을 것 
+
+        import {a, b} from './library.js'
+        // import 가져올것 (작명 가능) 적고 from '경로'
+        // import {a as 별명} from <- 작명 바꾸기 
+        // import * as 별명 from ~
+        // console.log(별명) 별명.a 이런 식으로 가져 오기 가능 
+
+        console.log(a);
+        console.log(b);
+
     </script>
 </body>
 </html>

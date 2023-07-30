@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 웹 브라우저 동작원리 
+        // 웹 브라우저 : 자바스크립트 실행해주는 애들임 
+        // 단계 : stack 이라는 공간에 한 줄 한 줄 실행
+        // 특징 하나임 : single threaded로 한 번에 코드 한 줄 밖에 실행하지 못함 
+        // 처리가 오래 걸리는 코드는 대기실에 
+        // ->  Ajax 요청 코드(서버에서 데이터 받아오는것), Eventlistener(버튼 누르면 이것 실행해 주세요), SetTimeout 등 
+        // 큐 라는 대기실 (Web API로 보냄): 대기 끝난 코드 들을 줄을 세움 -> stack 으로 하나씩 비워지면 올려 보냄 
+
+        // 가끔 for 반복문 쓰면 오래 걸림 
+        // 자바스크립트로 어려운 수학 연산 시키면 안 됨 
+        // stack과 queue 를 바쁘게 하지 말 것
+
+        // 자바스크립트 동기적(한 번에 한줄 Synchronous) vs 비동기적(Asynchronous 오래 걸리는 것은 제껴 놓고 빨리 되는 것 먼저)
+
+        console.log(1 + 1) // 1. 바로 실행 
+        setTimeout(function () {
+            console.log(2 + 2)
+        }, 1000) // 2. 1초 기다려주는데  4. 그리고나서 얘 <- 비동기적
+        console.log(3 + 3) // 3. 얘를 먼저 실행함 
+
+        element.addEventListener('click', function () {}) // 왼쪽이 클릭되었을때 이 함수를 실행시켜주세요(콜백 함수)
+        addEventListener('click', 함수) // 함수 바깥에 만들기도 함, 함수()는 실행시켜달라는 의미라서 () 빼야 함 
+        $.ajax() // 오래걸리거나 실행까지 오래걸리는 함수들 <- 비동기적 
+
+        // 즉 자바스크립트는 멈추지 않고 빨리 처리되는 것 먼저 실행시킴
+
+        // 콜백함수의 등작 : 함수 안에 함수가 들어가는 경우 , 함수 디자인 패턴일 뿐 
+        // 그럼 순차적으로 실행하려면?
+        console.log(1);
+        setTimeout(() => {
+            console.log(2)
+        }, 1000); // 순차적으로 작동하고 싶다? 그러면 콜백 함수 안에 넣는다. 
+        //console.log(2);
+
+        function 첫째함수(구멍) {
+            console.log(1)
+            구멍(); // 둘째함수가 들어가서 실행하게 됨 <- 이런 식으로 만들 수 있음 
+        }
+
+        function 둘째함수() {
+            console.log(2)
+        }
+
+        첫째함수(둘째함수); // 함수 안에 넣어서 순차적으로 실행 시킴 1, 2가 순차적으로 실행 됨 
+
+        // 첫째함수(); 
+        // 둘째함수(); 이렇게 하면 순서대로 안될 수도 있음 
+
+        // 콜백함수의 문제점은?
+        // 코드 순차적 실행을 위해 옆으로 길어지고 가독성이 떨어짐 => 그래서 Promise 등장 
+        // 첫째함수(function () {
+        //     둘째함수(function () {
+        //         셋째함수(function () {
+        //             어쩌구..
+        //         });
+        //     });
+        // }); 
+
+        첫째함수().then(function(){
+
+        }).then(function(){
+
+        }) // <- Promise 는 이런 식으로 옆으로 길어지지는 않는다. 
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+
+    <script>
+        //Q2. Ajax 요청이 성공하면(GET) 무언가 코드를 실행하고 싶습니다. 
+
+        // separate the jQuery script tag from your inline JavaScript code <- 이 문제 있었음
+
+        // $.ajax({
+        //     type: 'GET',
+        //     url: 'URL 경로'
+        // }).done(function (결과) {
+        //     console.log(결과);
+        // })
+
+        // $.get('https://codingapple1.github.io/hello.txt').done(function(결과) {
+        //     console.log(결과);
+        // });
+
+        // 둘중 하나 마음에 드는거 쓰시면 URL 경로 상에 있는 데이터를 가져올 수 있습니다. 
+        // 결과라는 파라미터에 여러분이 가져온 데이터가 담겨져있습니다. 
+
+        var 프로미스 = new Promise(function (resolve, reject) {
+
+            $.get('https://codingapple1.github.io/hello.txt').done(function (결과) {
+                resolve(결과) // 성공시 결과 뿌려줌 
+            });
+        });
+
+        프로미스.then(function (결과) {
+            console.log(결과);
+
+            var 프로미스2 = new Promise(function (resolve, reject) {
+                $.get('https://codingapple1.github.io/hello2.txt').done(function (결과2) {
+                    resolve(결과2) // 성공시 결과 뿌려줌 
+                })
+            });
+
+            return 프로미스2; // 리턴을 해주어야함 
+
+        }).then(function (결과2) {
+            console.log(결과2);
+        });
+
+
+        //Q3. Promise chaining <- 위의 것 참고 : 다시 한번 연습할 것~! 
+        
+    </script>
+</body>
+
+</html>

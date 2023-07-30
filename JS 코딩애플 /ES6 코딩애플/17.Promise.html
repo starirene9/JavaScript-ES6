@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <img id="test" src="https://codingapple1.github.io/kona.jpg"> 
+
+    <script>
+        // Promise (콜백 함수보다 예쁘게 코드를 디자인 할때 쓰임) => 성공, 실패 판정 기계
+        // 1 .then 으로 옆으로 길어지지 않음
+        // 2. catch : 실패했을때 실행하는 함수 
+        // 3. finally : 성공이던 실패던 뭔가 일어났을때 코드를 실행 시켜 주세요 
+
+        var 프로미스 = new Promise(function (resolve, reject) { // 관습적으로 두개의 파라미터 넣음
+            var 어려운연산 = 1 + 1; // 연산이 끝나면
+            resolve(어려운연산); // 성공 판정을 내려주세요 + 파라미터 전달 가능 
+
+            // reject(); // 실패 
+        });
+
+        프로미스.then(function (결과) { // 프로미스가 성공 시 실행할 코드 
+            // console.log('성공');
+            console.log(결과); // 2
+        }).catch(function () { // 프로미스가 실패 시 실행할 코드 
+            console.log('실패');
+        })
+
+
+        var 프로미스 = new Promise(function (resolve, reject) { // 관습적으로 두개의 파라미터 넣음
+            setTimeout(function () {
+                resolve(); // 1초 후에 성공을 판정해주는 promise로 만듦
+            }, 1000);
+        });
+
+        프로미스.then(function () { // 프로미스가 성공 시 실행할 코드 
+            console.log('성공');
+        }).catch(function () { // 프로미스가 실패 시 실행할 코드 
+            console.log('실패');
+        })
+
+        // Promise의 3가지 상태 <- 콘솔에 찍어보면 됨 
+        // 1. 판정 대기중이면 <pending>
+        // 2. 성공하면 <resolved>
+        // 3. 실패하면 <rejected>
+
+        // Promise에 대한 오해 
+        // 비동기적 처리가 가능하게 바꿔주는 마법의 문법이 아니다. 
+        // 위의 구조처럼 성공과 실패를 알려주는 형식으로 콜백함수 디자인의 대체품일 뿐이다. 
+
+        // $.ajax().done(function(){}).fail() // jQuery와 유사한 문법임
+
+        // fetch() // 자바스크립트에서 사용하는 fetch 도 유사함 : 항상 promise를 리턴한다. 
+        // fetch().then().catch() // 와 같은 것을 붙여줄 수 있음 
+
+        // Q1. <img> 이미지 로딩 성공시 특정 코드를 실행하고 싶습니다. 
+        
+            var 이미지로딩 =  new Promise(function(resolve, reject){
+                var img = document.querySelector('#test'); // 이렇게 이미지를 잡아 오는 걸 깜빡함
+                img.addEventListener('load', function(){
+                    resolve(); // 다음과 같이 콜백 함수 실행 (); 을 해줘야함
+                })
+                img.addEventListener('error', function(){
+                    reject();
+                })
+            });
+            // 프로미스 안에는 성공(), 실패()가 실행되는 경우의 수를 만들어 줄것 
+
+            이미지로딩.then(function(){ // resolve시 
+                console.log('이미지 로딩 성공');
+            }).catch(function(){ // reject시 
+                console.log('이미지 로딩 실패');
+            })
+            // then 과 catch로 성공/실패 시 특정 코드를 실행할 수 있음 
+
+
+    </script>
+</body>
+
+</html>
