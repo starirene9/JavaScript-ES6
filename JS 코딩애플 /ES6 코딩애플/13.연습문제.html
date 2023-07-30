@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1. 직접 class 구조 만들어 보기 
+        class 강아지 {
+            constructor(품종, 색상) {
+                this.type = 품종;
+                this.color = 색상;
+            }
+        }
+
+        var 강아지1 = new 강아지('말티즈', 'white');
+        var 강아지2 = new 강아지('진돗개', 'brown');
+
+        // 2. 고양이 관련 object 만들기 - extends
+
+        class 고양이 extends 강아지 {
+            constructor(품종, 색상, 나이) {
+                super(품종, 색상); // 이렇게 위에서 받아야할 파라미터를 constructor와 super()에 넣어주기 
+                this.age = 나이
+                // super()함수는 Dog의 constructor()를 그대로 복붙했다
+            }
+            // 3. 고양이와 강아지 object에 기능 하나씩 추가하기 
+            get 한살먹기() {
+                return this.age + 1 //6
+            }
+
+        }
+
+        var 고양이1 = new 고양이('코숏', 'white', 5);
+        var 고양이2 = new 고양이('러시안블루', 'brown', 2);
+
+        // 4. get/set 이용하기 
+
+        class Unit {
+            constructor() {
+                this.공격력 = 5;
+                this.체력 = 100;
+            }
+            get battlePoint() { // get은 return 사용 : 꺼내쓴다
+                return this.공격력 + this.체력;
+            }
+
+            set heal(a) { // set은 하나 파라미터 필수~! : 변경한다
+                this.체력 = this.체력 + a;
+            }
+        };
+
+        var 인스턴스 = new Unit(); // var 선언 안함 
+        console.log(인스턴스);
+
+        console.log(인스턴스.battlePoint); // 105
+        인스턴스.heal = 50; // set 사용하면 이렇게 쓰기 
+        console.log(인스턴스.battlePoint); // 마지막 체력과 공격력 업데이트 된 것을 찍어줘야 확인 가능~!
+        // 100 + 50 + 5 // 155
+
+        // class Unit {
+        //     constructor() {
+        //         this.체력 = 100;
+        //         this.공격력 = 5;
+        //     }
+        //     get battlePoint() {
+        //         return this.체력 + this.공격력;
+        //     }
+        //     set heal(a) {
+        //         this.체력 = this.체력 + a;
+        //     }
+        // };
+
+        // var 쎈애 = new Unit();
+
+        // console.log(쎈애.battlePoint);
+        // 쎈애.heal = 50;
+        // console.log(쎈애.battlePoint);
+
+        // ******************************* //
+        // 5. get/set 이용하기 2 <- 이 부분 틀렸으니 다시 가리고 써보고 설명 할것~!
+
+        var data = {
+            odd: [],
+            even: [],
+            // 1,2,3,4 입력시 홀수는 odd, 짝수는 even 속성에 array 형태로 저장되어야 함
+            setter함수: function (...숫자들) { // ...rest는 배열로 덮어서 가져옴 
+                // console.log(숫자들) 
+
+                // 숫자들.forEach(function(a) {
+                // forEach안의 function(){} 즉 콜백 함수 안에서의 this는 window를 의미해서 에러남
+                // arrow function으로 바꿔 주어야함 
+
+                숫자들.forEach((a) => {
+                    if (a % 2 == 1) {
+                        this.odd.push(a) // 홀수일때 
+                    } else {
+                        this.even.push(a) // 짝수일때
+                    }
+                });
+            }
+        }
+
+        data.setter함수(1, 2, 3, 4, 6);
+        //data.setter함수(1,2,3,4,5) 이렇게 입력하면  // data.odd, data.even으로 출력해볼 수 있음 
+        //data = { odd : [1,3,5], even : [2,4] }
+
+        var data = {
+            odd: [1, 3],
+            even: [2, 4, 6],
+            get getter함수(){ // 이 부분 다시 연습해보기 
+            return [...this.odd, ...this.even].sort();
+        }
+        };
+
+        console.log(data.getter함수);
+
+    </script>
+</body>
+
+</html>
