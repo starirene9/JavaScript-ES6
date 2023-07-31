@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // key, value를 저장하는 Map 자료형
+         // Map 자료형은 자료간의 연관성을 표현하기 위해 씀 
+         // Object 자료형은 자료 이름으로 글자만 가능, Map 자료형은 다 가능 
+
+        var person = new Map();
+
+        // 자료를 저장할 수 있음 (키, 밸류)
+        person.set('name', 'Gu') 
+        person.set('age', 20); 
+
+        // 자료 꺼내는 법 : get
+        person.get('age')
+
+        // 자료 삭제하는 법 : delete
+        person.delete('age');
+
+        // 자료의 개수 
+        person.size // 1
+        
+        for (var key of person.keys()) {
+            console.log(key) // 반복문으로 Map에서 자료 꺼내는 법 
+        }
+
+        var person2 = new Map([
+            ['name', 'Gu'],
+            ['age', 20]
+        ]) // 이렇게 한꺼번에 저장하기 가능 
+
+
+        // Set 자료형 
+        // 1. 중복자료를 허용하지 않는 Array 비슷한 것 
+
+        var 출석부 = ['john', 'tom', 'andy', 'tom']; 
+
+        var 출석부2 = new Set(['john', 'tom', 'andy', 'tom']); 
+ 
+        출석부2.add('selly');
+
+        출석부2.delete('selly');
+
+        출석부2.has('selly');
+        // 있는지 없는지 여부 
+
+        출석부2.size // 길이 
+
+        // 출석부의 중복을 제거하고 싶으면?
+        출석부 = [...출석부2]; //<- ... 괄호를 다 제거해서 나열해 줌 
+        // 이런 패턴으로 잘 이용함 
+
+        // Set 자료형 반복문 돌리기 
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

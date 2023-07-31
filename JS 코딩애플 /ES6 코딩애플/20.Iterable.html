@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        
+        // 1. 단순히 반복 시키는 for 반복문
+        for (var i = 0; i < 3; i++) {
+
+        }
+
+        // 2. forEach ( Array 전용 ) // forEach는 Array 전용입니다 
+        // [1, 2, 3].forEach();
+
+        class 부모 {
+        } 
+        부모.prototype.name = "Park";
+
+        var 오브젝트 = new 부모();
+
+        var 오브젝트 = {
+            name: 'Kim',
+            age: 30
+        };
+        // Object.getOwnPropertyDescriptor(오브젝트, 'name');  <- 숨겨진 정보들을 보여 줌 
+        // wriatable, enumerable, configurable 세 개 나옴 
+
+        // 3. for in 반복문( Object 전용 )
+        // + 부모의 prototype도 반복해줍니다. 
+
+        for (var key in 오브젝트) { // key = 작명 <- 키 값들을 빼내 줌 
+            // if(오브젝트hasOwnProperty(key)) { // 내가 직접 가지고 있는 값만 반복 (부모것 제외) 
+            console.log(오브젝트[key])
+            // }
+        }
+
+        // 4. for of 반복문( iterable 전용 : Array나 String 등 여러가지 자료에 있는것 )
+
+        var 어레이 = [2, 3, 4, 5];
+
+        for (var 자료 of 어레이) { // 어레이 말고 String도 넣기 가능 
+            // Array, 문자, arguments, NodeList, Map, Set 등 
+            console.log(자료); //2 3 4 5
+        }
+
+        어레이[Symbol.iterator](); // 이게 있으면 iterable 한 자료임 
+
+        // document.getElementsByClassName(); // NodeList도 위의 [] 자료형을 갖고 있음 
+        // document.querySelectorAll(); // 
+
+        // Symbol 유용하지는 않은 자료형
+
+        var 심볼 = Symbol('설명');
+        // object 자료형의 비밀스런 key 값
+        var weight = Symbol('내 시크릿 몸무게임');
+
+        var height = Symbol('내 시크릿 키임');
+
+        var person = { name : 'Gu', height : 168}; // symbol 안에 넣어도 직관적임
+        person.weight = 100;
+        person[weight] = 55; // 나오지 않음 
+        // person[height] = 168;
+
+        for (var key in person) {
+            console.log(person[key])
+        }
+
+        // 특징 1 : 설명이 같다고 해서 같은 Symbol이 아님
+        
+
+        var a = Symbol('설명1');
+        var b = Symbol('설명1');
+
+        console.log(a === b); //false
+
+        //전역 심볼을 만들고 싶을때 
+        var c = Symbol.for('설명1');
+        var d = Symbol.for('설명1');
+
+        console.log(c === d); //true
+        // 같은 설명을 가지고 있는 심볼이 위에 이미 있으면 기존 심볼을 복붙해줌 
+
+        var 어레이 = [2,3,4];
+        어레이[Symbol.iterator]; // array에 집어넣는 기본 Symbol
+
+        
+
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <custom-input name="이메일"></custom-input>
+    <custom-input name="비번"></custom-input> 
+
+    <script>
+        // web components 문법 : JS 문법으로 구현할 수 있는 브라우저 기본 기능임 
+        // 이걸 잘 다룰줄 알아야함
+        class 클래스 extends HTMLElement {
+
+            connectedCallback() { // 커스텀 HTML 꾸미는 공간 
+                let name = this.getAttribute('name');
+                this.innerHTML = `<label>${name}을 입력하세요</label><input>`
+            }
+            static get obeservedAttributes(){
+                return ['name'] // ['', ''] 더 집어 넣을 수 있음 
+            }
+            attributeChangedCallback(){
+                // attribute 변경시 실행할 코드  
+                this.innerHTML = `<label>인풋이에요</label><input>`
+            }
+        }
+        customElements.define('custom-input', 클래스); 
+        // 컴포넌트 등록
+        //작명시 보통 - 넣음 
+
+        // 커스텀 태그 : 파라미터문법 같은거 구현 가능 
+        // html 중복제거, 다른 페이지에서 재활용 가능 
+
+        // attrubute 변경감지 기능 제공됨
+        // props(attribute) 변경되면 html 자동 재렌더링 됨 
+
+    </script>
+</body>
+
+</html>
