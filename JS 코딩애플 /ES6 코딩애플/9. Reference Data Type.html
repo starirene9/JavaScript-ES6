@@ -27,11 +27,11 @@
             name: '김'
         };
 
-        이름1 == 이름2 // False 다른 자료를 가리킴
+        이름1 == 이름2 // object라서 False 다른 자료를 가리킴
 
         function 변경(obj) {
             obj.name = 'Park';
-            // obj = {name : 'park'} -> 이렇게 하는 경우 새로운 화살표가 생김. 
+            // obj = {name : 'park'} -> 이렇게 하는 경우 중괄호 = 새로운 화살표가 생김. 
             // 가리키기만 할 뿐 데이터를 변경하진 못함 그래서 '김' 이 나옴 
 
             // 파라미터는 변수 생성 & 할당과 똑같다. 
@@ -90,7 +90,7 @@
             name: 'Kim'
         };
         var 자식 = {};
-        자식.__proto__ = 부모;
+        자식.__proto__ = 부모; // 강제 등록
         자식.name;
 
 
@@ -129,7 +129,7 @@
         var a = new Parent(); // a = { name : 'Kim' } 
         a.__proto__.name = 'Park'; 
         // 이건 부모 prototype에 { name : 'Park' } 이걸 추가하라는 뜻입니다
-        console.log(a.name) // 내가 직접 가지고 있는 { name : 'Kim' } 이걸 우선 출력해 줌 
+        console.log(a.name) // 내가 직접 가지고 있는 { name : 'Kim' } 이걸 우선 출력해 줌 : 가까운 것 우선 출력 
 
         //문제 2. object안에 들어있는 함수안에 있는 this는 함수를 부른 object가 된다고 했습니다.
         //하지만 arrow function의 경우 함수 안에서 this 뜻이 재정의되지 않고 바깥에 있던 this를 사용합니다. 
@@ -137,7 +137,7 @@
         // 문제 3. 모든 array에 적용할 수 있는 함수를 직접 새로 만드려면?
    
 
-        Array.prototype.remove3 = function(){
+        Array.prototype.remove3 = function(){ // 아예 prototype을 사용함으로써 부모 함수에 function 을 만든다. 
             // this에서 3을 찾아서 제거해주세요 
             for (var i=0; i < this.length; i++) {
                 if(this[i] === 3) {

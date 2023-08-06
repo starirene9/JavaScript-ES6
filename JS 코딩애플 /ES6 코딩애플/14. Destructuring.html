@@ -10,73 +10,73 @@
 
 <body>
     <script>
-        var arr = [2, 3, 4];
+        // var arr = [2, 3, 4];
 
-        // array 데이터를 전부 변수에 담으려면?
-        var [a, b, c] = [2, 3, 4];
+        // // array 데이터를 전부 변수에 담으려면?
+        // var [a, b, c] = [2, 3, 4];
 
-        // array destructuring 할 때 몇개를 빼먹는다면?
-        var [a, b, c = 10] = [2, 3]; // 등호로 default 변수 지정 가능 
+        // // array destructuring 할 때 몇개를 빼먹는다면?
+        // var [a, b, c = 10] = [2, 3]; // 등호로 default 변수 지정 가능 
 
-        // 아예 입력을 하지 않는다면? undefined
+        // // 아예 입력을 하지 않는다면? undefined
 
-        var object = {
-            name: '구빛나',
-            age: 30
-        }
+        // var object = {
+        //     name: '구빛나',
+        //     age: 30
+        // }
 
-        // object 데이터를 꺼내 변수에 담으려면?
+        // // object 데이터를 꺼내 변수에 담으려면?
 
-        // object destructuring 괄호 
-        // 변수명을 key 명과 똑같이 써야 함 
-        var {
-            name,
-            age
-        } = {
-            name: '구빛나',
-            age: 30
-        }
-        // default age = 100 넣기 가능 
-        // 변수명 바꾸기는 ? name : 이름 <- 다음과 같이 변수명 바꾸기 가능 
-        // name : 이름 =  'GU' <- default 까지 주기 
+        // // object destructuring 괄호 
+        // // 변수명을 key 명과 똑같이 써야 함 
+        // var {
+        //     name,
+        //     age
+        // } = {
+        //     name: '구빛나',
+        //     age: 30
+        // }
+        // // default age = 100 넣기 가능 
+        // // 변수명 바꾸기는 ? name : 이름 <- 다음과 같이 변수명 바꾸기 가능 
+        // // name : 이름 =  'GU' <- default 까지 주기 
 
-        // 반대로 변수들을 object에 집어 넣고 싶은 경우 
-        var 이름 = '구빛나';
-        var 나이 = 33;
+        // // 반대로 변수들을 object에 집어 넣고 싶은 경우 
+        // var 이름 = '구빛나';
+        // var 나이 = 33;
 
-        var obj = {
-            이름,
-            나이
-        };
-        // 많이 쓰임~!
+        // var obj = {
+        //     이름,
+        //     나이
+        // };
+        // // 많이 쓰임~!
 
-        // 함수 파라미터 만들 때도 destructuring 문법 사용 가능 
-        var obj1 = {
-            name: 'Gu',
-            age: 32
-        }
+        // // 함수 파라미터 만들 때도 destructuring 문법 사용 가능 
+        // var obj1 = {
+        //     name: 'Gu',
+        //     age: 32
+        // }
 
-        function 함수({
-            name,
-            age
-        }) {
-            console.log(name);
-            console.log(age);
-        }
+        // function 함수({
+        //     name,
+        //     age
+        // }) {
+        //     console.log(name);
+        //     console.log(age);
+        // }
 
-        함수({
-            name: 'Gu',
-            age: 32
-        });
+        // 함수({
+        //     name: 'Gu',
+        //     age: 32
+        // });
 
-        function 함수([name, age]) {
-            console.log(name);
-            console.log(age);
-        }
+        // function 함수([name, age]) {
+        //     console.log(name);
+        //     console.log(age);
+        // }
 
-        var array = ['Kim', 30];
-        함수(['Kim', 30]);
-        //파라미터인 [name, age] 를 만들 때 ['Kim', 30] 이걸 그대로 대입
+        // var array = ['Kim', 30];
+        // 함수(['Kim', 30]);
+        // //파라미터인 [name, age] 를 만들 때 ['Kim', 30] 이걸 그대로 대입
 
         // 연습문제 1 a, address, number 변수는 각각 무슨 값을 가지고 있을까? 정답 : seoul, seoul, 30 
         var [number, address] = [30, 'seoul'];

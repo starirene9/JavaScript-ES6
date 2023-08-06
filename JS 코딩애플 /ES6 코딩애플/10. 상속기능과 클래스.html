@@ -18,7 +18,7 @@
         
         var 자식 = Object.create(부모);
         
-        console.log(자식) // {}
+        console.log(자식) // {}  그대로 물려받음 
         console.log(자식.name) // Kim <- 상속 기능 구현 가능
         자식.age = 20;
         console.log(자식.age); //20 
@@ -29,7 +29,8 @@
         // name 과 age 사용 가능 
         console.log(손자.age); // 20 자식의 age
 
-        // *************ES6 방식 Class******************
+
+        // ************* ES6 방식 Class 안에 constructor 형태 ******************
         class 부모님 {
             constructor() {
                 this.name = 'Kim';
@@ -43,7 +44,7 @@
         }
 
         // 함수 추가 하는 법은?
-        부모님.prototype.sayHello = function(){
+        부모님.prototype.sayHello = function(){ // 이러면 자손들이나 후예들은 다 갖다 쓸 수 있음. 
             console.log('부모님께 효도하세요');
         }
 
