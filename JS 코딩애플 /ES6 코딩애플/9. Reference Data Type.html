@@ -31,14 +31,14 @@
 
         function 변경(obj) {
             obj.name = 'Park';
-            // obj = {name : 'park'} -> 이렇게 하는 경우 중괄호 = 새로운 화살표가 생김. 
-            // 가리키기만 할 뿐 데이터를 변경하진 못함 그래서 '김' 이 나옴 
+            // obj = {name : 'park'} -> 2. 이렇게 하는 경우 중괄호 => 새로운 화살표가 생김. 
+            // 가리키기만 할 뿐 데이터를 변경하진 못함 그래서 원본 이름인 이름 1의 값 '김' 이 나옴 
 
             // 파라미터는 변수 생성 & 할당과 똑같다. 
             // 파라미터 변수에 = {} 해 봤자 원래 이름 1 오브젝트는 변화가 없다 
         }
 
-        변경(이름1); //Park 
+        변경(이름1); //1. Park 으로 바뀜 
         // var obj = 이름1와 같다고 보면 됨  (reference type)
 
 
@@ -62,7 +62,7 @@
         학생1.sayHi(); // 안녕하세요 Kim 입니다
         학생2.sayHi();
 
-        // 상속을 구현할 수 있는 prototype은 자바스크립트에만 있다
+        // 상속을 구현할 수 있는 prototype은 자바스크립트에만 있다 : 함수에만 있음 
         // contstructor를 만들면 prototype 공간이 자동으로 생김
         // prototype에 값을 추가하면 모든 자식들이 물려받기 가능 
 
@@ -109,6 +109,8 @@
         var 상품2 = new Product('pants', 60000);
 
         // 오브젝트 자료 여러개 만들기 -> Constructor 이용
+        // this 필요함 
+
         function Students(이름, 나이) {
             this.name = 이름;
             this.age = 나이;

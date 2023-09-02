@@ -27,29 +27,29 @@ function calculator(n1, n2){
 
 //===========================1. 전역변수로 카운트 선언 : 전역변수 사용 자제 
 
-// let count = 0; // 전역 변수 : 카운팅 변수 
+let count = 0; // 전역 변수 : 카운팅 변수 
 
-// //카운트를 올리는 함수 
-// const increase = () => ++count;
+//카운트를 올리는 함수 
+const increase = () => ++count;
 
-// console.log(increase()); //1
-// console.log(increase()); //1
+console.log(increase()); //1
+console.log(increase()); //1
 
-// count = 999; // 누가 중간에 숫자 값 변경 하면? 
+count = 999; // 누가 중간에 숫자 값 변경 하면? 
 
-// console.log(increase()); // 숫자가 1000으로 변하는 위험성 존재 
+console.log(increase()); // 숫자가 1000으로 변하는 위험성 존재 
 
 //=================2. 지역변수로 카운트 선언 지역변수는 나가면 메모리가 사라짐 : 누적 안됨
-// const increase = () => {
+const increase = () => {
 
-//     let count = 0; //지역변수 : 메모리에 카운트가 잠시 0으로 올라왔다가 
-//     return ++count; // 리턴이 나간다음에 카운트의 존재는 메모리에서 사라짐 
+    let count = 0; //지역변수 : 메모리에 카운트가 잠시 0으로 올라왔다가 
+    return ++count; // 리턴이 나간다음에 카운트의 존재는 메모리에서 사라짐 
 
-// };
+};
 
-// console.log(increase()); // 1 
-// console.log(increase()); // 1  
-// console.log(increase()); // 1 => 누적이 되지 않음 
+console.log(increase()); // 1 
+console.log(increase()); // 1  
+console.log(increase()); // 1 => 누적이 되지 않음 
 
 //=========================3 클로저 : 헬퍼 함수로 상태유지
 // 상태유지 stateful <-> stateless 를 위해서 클로저 사용 
@@ -63,10 +63,10 @@ const increaseClosure = () => {
 
 const increase = increaseClosure(); // () => ++count가 작동 
 
-// console.log(increase()); //1
-// console.log(increase()); //2
-// count = 999; //let count = 0; 함수 내부의 지역변수
-// console.log(increase()); //3 
+console.log(increase()); //1
+console.log(increase()); //2
+count = 999; //let count = 0; 함수 내부의 지역변수
+console.log(increase()); //3 
 
 // ======================즉시 실행 함수(일회용 함수)
 // 즉시 실행 함수 : 정의와 동시에 호출

@@ -14,14 +14,14 @@
 
     <script>
         // 프로미스를 깔끔하게 만들어내는 것 async/await
-        // 콜백보다 가독성 좋게 Promise 만드려고 하는데 귀찮으면 async 사용
+        // 콜백보다 가독성 좋게 Promise 만드려고 하는데 편리하게 async 사용
 
-        async function 더하기() { // 함수 선언 앞에 붙임 => Promise의 기능 수행
+        async function 더하기() { // 함수 선언 앞에만 붙임 => Promise의 기능 수행
             // 1 + 1;
             return 10 + 10; // 리턴을 주면 결과도 출력 가능하다. 
 
             // 단점은 성공만 확인 가능하고 실패는 넣기 불가 
-            // return Promise.reject('실패임')도 가능 
+            // return Promise.reject('실패임')도  가능 
             // async 함수 실행 후 Promise 오브젝트가 남음 
 
             // 콜백()
@@ -29,13 +29,12 @@
 
 
         // 더하기(함수); // 연산이 끝나면 특정 코드를 실행하고 싶음 => 콜백함수 사용 
-
-
+        // async는 promise 오브젝트가 남고 then을 사용할 수 있다. 
         더하기().then(function (결과) {
             // console.log('성공입니다')
-            console.log(결과)
+            console.log(결과) //20
         })
-        // async는 promise 오브젝트가 남고 then을 사용할 수 있다. 
+
 
         //=============== async 와 await ==================// 
 
@@ -46,13 +45,14 @@
                 // reject(100); // 실패 
             });
 
-            // await는 프로미스 실패시 에러나고 멈춥니다. -> try, catch 사용
-            // try {이걸 해보고 에러나면} catch {이걸 실행해주세요}
 
             try {
-                var 결과 = await 프로미스; // <- 프로미스가 해결될때까지 성공 판정이 나올때까지 기다려 
+                var 결과 = await 프로미스; // <- 프로미스가 해결될때까지 판정이 나올때까지 기다려 
                 console.log(결과); // await는 async 안에서만 쓸 수 있음 
                 // then()과 똑같음
+                // 에러가 나오면 멈추는데 이 실패를 다룰 수 있는 문법이 try catch
+                // try {이걸 해보고 에러나면} catch {이걸 실행해주세요}
+                
             } catch {
                 console.log('프로미스 연산이 잘 안 되었군');
             }
@@ -70,24 +70,21 @@
 
         async function 결과출력() {
             var 프로미스 = new Promise(function (resolve, rejcet) {
-                    document.querySelector('#btn').addEventListener('click',
-                    function(){
-                            resolve('성공했어요');
-                        })
-                    });
+                document.querySelector('#btn').addEventListener('click',
+                    function () {
+                        resolve('성공했어요');
+                    })
+            });
 
-                try {
-                    var 결과 = await 프로미스; // 성공시 
-                    console.log(결과);
-                } catch {
-                    console.log('연산 문제 실패'); // 실패시
-                }
+            try {
+                var 결과 = await 프로미스; // 성공시 
+                console.log(결과);
+            } catch {
+                console.log('연산 문제 실패'); // 실패시
             }
+        }
 
-            결과출력();
-
-
-
+        결과출력();
     </script>
 </body>
 

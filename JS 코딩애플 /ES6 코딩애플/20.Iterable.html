@@ -16,6 +16,7 @@
 
         }
 
+        // 자료를 하나씩 출력하고 싶을때 사용함
         // 2. forEach ( Array 전용 ) // forEach는 Array 전용입니다 
         // [1, 2, 3].forEach();
 
@@ -52,33 +53,33 @@
 
         어레이[Symbol.iterator](); // 이게 있으면 iterable 한 자료임 
 
-        // document.getElementsByClassName(); // NodeList도 위의 [] 자료형을 갖고 있음 
-        // document.querySelectorAll(); // 
-
-        // Symbol 유용하지는 않은 자료형
+        // document.getElementsByClassName(); // NodeList도 위의 것을 갖고 있고 자료형이 []임 
+        // document.querySelectorAll(); // 그래서 for of 반복문 돌려도 됨 
 
         var 심볼 = Symbol('설명');
-        // object 자료형의 비밀스런 key 값
+        // object 자료형의 비밀스런 key 값으로 사용가능함 
+
         var weight = Symbol('내 시크릿 몸무게임');
 
         var height = Symbol('내 시크릿 키임');
 
         var person = { name : 'Gu', height : 168}; // symbol 안에 넣어도 직관적임
+        // var person = { name : 'Gu', [height] : 168}; // 이런 식으로 바로 안에 넣어도 됨
         person.weight = 100;
-        person[weight] = 55; // 나오지 않음 
-        // person[height] = 168;
+        person[weight] = 55; 
+        // []로 감싸면 weight라는 심볼을 적용한 것이고, inumerable 한게 아니여서 나오지 않음 
 
         for (var key in person) {
-            console.log('symbol:', person[key])
+            console.log(person[key])
+            // 55는 나오지 않음 
         }
-
-        // 특징 1 : 설명이 같다고 해서 같은 Symbol이 아님
         
 
         var a = Symbol('설명1');
         var b = Symbol('설명1');
 
         console.log(a === b); //false
+         // 특징 1 : 설명이 같다고 해서 같은 Symbol이 아님
 
         //전역 심볼을 만들고 싶을때 
         var c = Symbol.for('설명1');
@@ -88,7 +89,8 @@
         // 같은 설명을 가지고 있는 심볼이 위에 이미 있으면 기존 심볼을 복붙해줌 
 
         var 어레이 = [2,3,4];
-        어레이[Symbol.iterator]; // array에 집어넣는 기본 Symbol
+        어레이[Symbol.iterator]; 
+        // Java Script가 array에 집어넣는 기본 Symbol 이라고 이해만 하면 됨 
 
         
 

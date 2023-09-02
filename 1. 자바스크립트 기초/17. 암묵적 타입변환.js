@@ -21,7 +21,7 @@ if (0) console.log('ok3');
 if ("") console.log('ok4');
 if (NaN) console.log('ok5');
 
-// Truthy : true 값 
+// Truthy : 특히 1은 true 값 , 스페이스 하나만 있어도 true
 if (1) console.log('ok6');
 if (-100.55) console.log('ok7');
 if ('   ') console.log('ok8'); // 스페이스 하나만 있어도 true
