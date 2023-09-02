@@ -10,17 +10,19 @@
     <script>
 
         // key, value를 저장하는 Map 자료형
-         // Map 자료형은 자료간의 연관성을 표현하기 위해 씀 
-         // Object 자료형은 자료 이름으로 글자만 가능, Map 자료형은 다 가능 
+         // Object 자료형은 자료 이름으로 글자만 가능하나
+         // Map 자료형은 모든 유형의 자료 key 값에 넣기 다 가능 
 
+         // 1. 이렇게 사용해야함
         var person = new Map();
 
-        // 자료를 저장할 수 있음 (키, 밸류)
+        // 자료를 저장하는 문법 (키, 밸류)
+        // Map 자료형은 자료간의 연관성을 표현하기 위해 씀 
         person.set('name', 'Gu') 
-        person.set('age', 20); 
+        person.set('age', 20);  
 
-        // 자료 꺼내는 법 : get
-        person.get('age')
+        // 자료 꺼내는 법 혹은 출력 : get
+        person.get('age') // 20
 
         // 자료 삭제하는 법 : delete
         person.delete('age');
@@ -28,8 +30,8 @@
         // 자료의 개수 
         person.size // 1
         
-        for (var key of person.keys()) {  //작명.keys()
-            console.log(key) // 반복문으로 Map에서 자료 꺼내는 법 
+        for (var key of person.keys()) {  //작명.keys() : 키 값들이 다 출력 됨 
+            console.log(key) // 개수에 맞춰서 키 값을 꺼낼 수 있음 
         }
 
         var person2 = new Map([
@@ -52,13 +54,13 @@
         출석부2.has('selly');
         // 있는지 없는지 여부 
 
-        출석부2.size // 길이 
+        출석부2.size // 길이 : 3개
 
         // 출석부의 중복을 제거하고 싶으면?
-        출석부 = [...출석부2]; //<- ['john', 'tom', 'andy']
+        출석부 = [...출석부2]; //<- {}'john', 'tom', 'andy'} 로 되어있는걸 ... 펼쳐서 []에 담음
         // 이런 패턴으로 잘 이용함 
 
-        // Set 자료형 반복문 돌리기 
+        // Set 자료형 반복문 돌리기 : forEach, for of 도 사용 가능 
 
 
 

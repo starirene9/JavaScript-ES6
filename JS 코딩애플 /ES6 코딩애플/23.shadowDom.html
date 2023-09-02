@@ -7,14 +7,14 @@
     <title>Document</title>
 </head>
 <body>
-    <input type="range">
+    <!-- <input type="range"> -->
 
     <div id="mordor"></div>
     <label>하잇</label>
 
     <custom-input>하이</custom-input>
 
-     <!-- 임시 보관함  -->
+     <!-- 임시 HTML 보관함 : html 페이지에 랜더링 되지 않음 -->
     <template id="template1">
         <label>이메일을 입력하세요</label><input>
         <style>label {color: red}</style>
@@ -23,19 +23,25 @@
     <script>
         // html 을 몰래 숨겨 놓을 수 있는데 그것을 shadow DOM 이라고 한다. 
         // shadow DOM 만들기 
-
         document.querySelector('#mordor').attachShadow({mode : 'open'}); 
         document.querySelector('#mordor').shadowRoot.innerHTML = 
         '<p>카타르에서 왔도다</p>'; 
         // 개발자에게만 보임 
 
-        // Web components + shadow DOM = 완벽한 HTML 모듈
+        // Web components + shadow DOM = 완벽한 HTML 모듈화
+
         // 모듈화가 가능하고 서로 영향을 받지 않게 가능함 
         class 클래스 extends HTMLElement {
             connectedCallback(){
-                this.attachShadow({mode : 'open'})
+                this.attachShadow({mode : 'open'});
+                // this.shadowRoot.innerHTML = `<label>이메일을 입력하시지</label><input>
+                //     <style>label {color : red}</style>` <- 현실적으로 여기에 쓰는거 더럽.. 그래서 template 쓰면 됨
+                //  숨겨져 있기에 이것만 빨갛고 나머지 라벨을 검정 글씨 나옴 
+
                 this.shadowRoot.append(template1.content.cloneNode(true));
-                // addEventListener 추가 가능 
+                // custom & shadow 문법을 이쁘게 사용할 수 있음 
+
+                // addEventListener도 shadowDOM에 추가 가능 
                 let el = this.shadowRoot.querySelector('label');
                 el.addEventListener('click', function(){
                     console.log('클릭함')
